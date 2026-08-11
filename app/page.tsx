@@ -1,4 +1,4 @@
-import { Shell } from "./components/SiteChrome";
+import { Arrow, Shell } from "./components/SiteChrome";
 
 export default function Home() {
   return <Shell><main>
@@ -7,7 +7,7 @@ export default function Home() {
         <p className="eyebrow">NEXT GENERATION OF IMMUNO-ONCOLOGY</p>
         <h1><span className="hero-line">Immunotherapy</span><span className="hero-line hero-line-two">starts <span className="accent">before the checkpoint.</span></span></h1>
         <p className="lead">Aveta applies principles of evolutionary biology to develop oral therapies that reprogram the tumor–immune ecosystem upstream of checkpoints and thus changing the conditions that allow cancer to suppress immunity, adapt and persist.</p>
-        <div className="actions"><a className="button" href="/science">Explore Our Science →</a><a className="button-outline" href="mailto:betterhealth@avetabiomics.com?subject=Partnership inquiry">Partner with us →</a></div>
+        <div className="actions"><a className="button" href="/science">Explore Our Science <Arrow /></a><a className="button-outline" href="mailto:betterhealth@avetabiomics.com?subject=Partnership inquiry">Partner with us <Arrow /></a></div>
       </div>
       <figure className="home-ecosystem-figure">
         <img src="/assets/home-hero-reprogramming.png" alt="Aveta drugs reprogram an immune-suppressed tumor ecosystem so immune cells can enter" />

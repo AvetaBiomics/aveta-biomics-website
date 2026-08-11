@@ -78,7 +78,7 @@ Vercel's access controls or another production authentication solution.
 
 - `/` — Home
 - `/about` — About and team biographies
-- `/mission` — Our Mission, Our Heroes
+- `/mission` — Our Mission
 - `/science` — Our Science
 - `/pipeline` — Pipeline and ClinicalTrials.gov links
 - `/publications` — Publications and conference materials

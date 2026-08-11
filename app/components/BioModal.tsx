@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Arrow } from "./SiteChrome";
 
 type BioModalProps = {
   name: string;
@@ -21,7 +22,7 @@ export function BioModal({ name, role, image, bio, section = "LEADERSHIP" }: Bio
   return <>
     <button className="person-card" onClick={() => canOpen && setOpen(true)} aria-haspopup={canOpen ? "dialog" : undefined}>
       {image ? <img src={image} alt={name} /> : <span className="person-placeholder" aria-hidden="true">●</span>}
-      <span className="person-copy"><strong>{name}</strong><span>{role}</span>{canOpen && <small>View biography →</small>}</span>
+      <span className="person-copy"><strong>{name}</strong><span>{role}</span>{canOpen && <small>View biography <Arrow /></small>}</span>
     </button>
     {open && bio && <div className="modal-backdrop" role="presentation" onMouseDown={() => setOpen(false)}>
       <section className="bio-modal" role="dialog" aria-modal="true" aria-labelledby={`bio-${name.replace(/\W/g,"-")}`} onMouseDown={(event) => event.stopPropagation()}>

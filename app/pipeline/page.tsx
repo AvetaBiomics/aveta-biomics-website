@@ -1,4 +1,4 @@
-import { Shell } from "../components/SiteChrome";
+import { ExternalArrow, Shell } from "../components/SiteChrome";
 
 const trials = {
   hnc: "https://clinicaltrials.gov/study/NCT07667296?term=APG-157&viewType=Card&rank=3",
@@ -11,7 +11,7 @@ export default function PipelinePage() {
     <Shell active="/pipeline">
       <main>
         <h1 className="sr-only">APG-157 development programs</h1>
-        <section className="image-banner"><img src="/assets/pipeline-patient-doctor.png" alt="A patient speaking with his physician" /></section>
+        <section className="image-banner"><img src="/assets/pipeline-patient-doctor.jpg" alt="A patient speaking with his physician" /></section>
         <section className="pipeline-intro"><div className="container"><p className="lead">Aveta is advancing APG-157 across clinical and preclinical programs in cancers where reprogramming the tumor immune microenvironment may offer a new therapeutic approach.</p></div></section>
 
         <section className="section-sm"><div className="container">
@@ -21,19 +21,19 @@ export default function PipelinePage() {
               <div className="program-name">APG-157</div>
               <div className="indication">Newly Diagnosed Locally Advanced<br />Head and Neck Cancer<br /><span className="designation">FDA Fast Track Designation</span><span className="designation blue">FDA Orphan Drug Designation</span></div>
               <div><div className="stage-track"><div className="stage-bar p3">Phase 3</div></div></div>
-              <div><a className="nct" href={trials.hnc} target="_blank" rel="noreferrer">NCT07667296 ↗</a></div>
+              <div><a className="nct" href={trials.hnc} target="_blank" rel="noreferrer">NCT07667296 <ExternalArrow /></a></div>
             </div>
             <div className="pipeline-row" role="row">
               <div className="program-name">APG-157 +<br />Bevacizumab</div>
               <div className="indication">Recurrent High Grade Glioma</div>
               <div><div className="stage-track"><div className="stage-bar p12">Phase 1b/2a</div></div></div>
-              <div><a className="nct" href={trials.glioma} target="_blank" rel="noreferrer">NCT06011109 ↗</a></div>
+              <div><a className="nct" href={trials.glioma} target="_blank" rel="noreferrer">NCT06011109 <ExternalArrow /></a></div>
             </div>
             <div className="pipeline-row" role="row">
               <div className="program-name">APG-157</div>
               <div className="indication">Oral Dysplasia</div>
               <div><div className="stage-track"><div className="stage-bar p2">Phase 2</div></div></div>
-              <div><a className="nct" href={trials.dysplasia} target="_blank" rel="noreferrer">NCT05865028 ↗</a></div>
+              <div><a className="nct" href={trials.dysplasia} target="_blank" rel="noreferrer">NCT05865028 <ExternalArrow /></a></div>
             </div>
             <div className="pipeline-row" role="row"><div className="program-name">APG-126</div><div className="indication">Triple Negative Breast Cancer</div><div><div className="stage-track"><div className="stage-bar pre">Preclinical</div></div></div><div /></div>
             <div className="pipeline-row" role="row"><div className="program-name">APG-126</div><div className="indication">Diffuse Intrinsic Pontine Glioma (DIPG)</div><div><div className="stage-track"><div className="stage-bar pre">Preclinical</div></div></div><div /></div>

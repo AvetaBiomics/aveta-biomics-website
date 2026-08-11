@@ -30,8 +30,12 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     Boolean(expectedToken && suppliedToken === expectedToken);
 
   return (
+    // suppressHydrationWarning: browser extensions (password managers, colour
+    // pickers, translators) inject attributes onto <body> before React
+    // hydrates, which React reports as a mismatch. This applies to <body>'s own
+    // attributes only, not its children, so real mismatches still surface.
     <html lang="en">
-      <body>{hasAccess ? children : <PasswordGate />}</body>
+      <body suppressHydrationWarning>{hasAccess ? children : <PasswordGate />}</body>
     </html>
   );
 }
