@@ -23,7 +23,7 @@ export default function Home() {
 
     <section className="section-sm navy-bg"><div className="container"><div className="dual-head logic-head"><h2>Reprogram the tumor. Transform the outcome.</h2></div><div className="logic-grid">
       <div className="logic-item"><p className="number">01</p><h3>Designed to Prevent Drug Resistance</h3><p>Acts across multiple immune pathways, making cancer escape through any single route more difficult.</p></div>
-      <div className="logic-item"><p className="number">02</p><h3>The body’s own immune logic</h3><p>Designed around functions of endogenous metabolites that regulate human immune activity.</p></div>
+      <div className="logic-item"><p className="number">02</p><h3>Uses human body&rsquo;s own immune logic</h3><p>Designed around functions of endogenous metabolites that regulate human immune activity.</p></div>
     </div></div></section>
   </main></Shell>;
 }
