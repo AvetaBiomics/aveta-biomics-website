@@ -51,7 +51,7 @@ export default function PipelinePage() {
         <section className="section"><div className="container burden-grid">
           <article className="burden-card"><h3>Head &amp; Neck Cancer</h3><p className="big">950,000</p><p>new diagnoses worldwide each year</p><hr /><p className="big">400,000</p><p>deaths worldwide each year</p></article>
           <article className="burden-card"><h3>High Grade Glioma</h3><p className="big" style={{fontSize:38}}>300,000–335,000</p><p>new diagnoses worldwide each year</p><hr /><p className="big" style={{fontSize:38}}>220,000–250,000</p><p>deaths worldwide each year</p></article>
-          <article className="burden-card"><h3>Oral Dysplasia</h3><p className="lead" style={{marginTop:46,color:'var(--navy)'}}>An opportunity to intervene before invasive cancer develops.</p><hr /><p>Oral dysplasia is a precancerous condition that can progress to invasive oral cancer.</p></article>
+          <article className="burden-card"><h3>Oral Dysplasia</h3><p className="lead" style={{marginTop:46,color:'var(--navy)'}}>An opportunity to intervene before invasive cancer develops.</p><hr /><p className="lead" style={{color:'var(--navy)'}}>Oral dysplasia is a precancerous condition that can progress to invasive oral cancer.</p></article>
         </div></section>
       </main>
     </Shell>
