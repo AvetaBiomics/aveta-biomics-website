@@ -52,7 +52,11 @@ img { max-width: 100%; display: block; }
 .header-inner { max-width: calc(var(--page-max) + var(--gutter) * 2); height: var(--header-h); margin: 0 auto; padding: 0 var(--gutter); display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); }
 .brand { display: inline-flex; align-items: center; flex: 0 0 auto; }
 .brand img { width: 200px; height: auto; }
-.main-nav { display: flex; align-items: center; gap: 14px; font-size: 15px; font-weight: 700; color: #06134b; white-space: nowrap; }
+/* gap 10px, not 14: with the long mission label the nav measures 915px at
+   14px type, needing a 1195px viewport — only 25px under the 1220px
+   breakpoint, too thin to survive font-metric differences between browsers.
+   The tighter gap restores ~5% headroom. */
+.main-nav { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; color: #06134b; white-space: nowrap; }
 /* Desktop only: let the nav fill the space after the brand, then split the
    leftover between two auto margins so the link group sits centred between the
    brand and the Join Us button. Scoped to min-width because the mobile menu is

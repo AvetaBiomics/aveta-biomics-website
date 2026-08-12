@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const nav = [
   ["About", "/about"],
-  ["Our Mission", "/mission"],
+  ["Our Mission, Our Heroes", "/mission"],
   ["Our Science", "/science"],
   ["Pipeline", "/pipeline"],
   ["Publications", "/publications"],
