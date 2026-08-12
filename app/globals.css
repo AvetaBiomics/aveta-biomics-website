@@ -278,7 +278,14 @@ a:hover > .icon-arrow{transform:translate(1px,-1px);transition:transform .15s}
 @media (max-width:860px){.contact-cards,.metric-grid{grid-template-columns:1fr}.centered-copy{text-align:left}.center-actions{justify-content:flex-start}}
 
 /* Approved page compositions */
-.approved-home-hero{min-height:525px;display:grid;grid-template-columns:50% 50%;align-items:center;border-bottom:1px solid var(--line);overflow:hidden}.approved-home-hero .home-copy{padding:var(--hero-y) var(--s-6) var(--hero-y) max(var(--gutter),calc((100vw - var(--page-max))/2))}.approved-home-hero h1{font-size:clamp(50px,5vw,72px);max-width:720px}.approved-home-outcome .dual-head{max-width:950px}
+/* The hero is padded to the content width on both sides, so its two columns
+   split the container rather than the viewport: the copy starts level with the
+   logo and the figure finishes level with the Join Us button, which it
+   previously overshot by 28px at 1200 and 280px at 1920. Padding both sides
+   (rather than only the right) keeps each column the same width it had before,
+   so the headline and eyebrow wrap exactly as they did. */
+.approved-home-hero{min-height:525px;display:grid;grid-template-columns:50% 50%;align-items:center;border-bottom:1px solid var(--line);overflow:hidden;padding-inline:max(var(--gutter),calc((100vw - var(--page-max))/2))}/* No left padding: the section above now supplies the offset to the container. */
+.approved-home-hero .home-copy{padding:var(--hero-y) var(--s-6) var(--hero-y) 0}.approved-home-hero h1{font-size:clamp(50px,5vw,72px);max-width:720px}.approved-home-outcome .dual-head{max-width:950px}
 
 .home-ecosystem-figure{width:min(100%,780px);margin:0;justify-self:center}.home-ecosystem-figure>img{width:100%;height:auto}
 
@@ -321,7 +328,10 @@ a:hover > .icon-arrow{transform:translate(1px,-1px);transition:transform .15s}
 
 .publications-contact{text-align:center}.publications-contact h2{margin:0}.publications-contact p{color:#d7e0f8}.publications-contact .actions{justify-content:center}
 
-@media (max-width:860px){.approved-home-hero,.about-approved-hero,.science-approved-hero,.join-approved-hero{grid-template-columns:1fr}.approved-home-hero .home-copy,.join-approved-copy{padding:var(--s-7) var(--gutter)}/* Matches the copy's own padding above it, so the stacked hero has equal space
+@media (max-width:860px){.approved-home-hero,.about-approved-hero,.science-approved-hero,.join-approved-hero{grid-template-columns:1fr}
+  /* Stacked: the copy and figure carry their own gutters, so the section's
+     side padding would double up. */
+  .approved-home-hero{padding-inline:0}.approved-home-hero .home-copy,.join-approved-copy{padding:var(--s-7) var(--gutter)}/* Matches the copy's own padding above it, so the stacked hero has equal space
    at its top and bottom rather than 56px above and 24px below. */
 .home-ecosystem-figure{width:min(100%,510px);margin:0 auto var(--s-7)}.about-process{grid-template-columns:1fr}.about-process>i{transform:rotate(90deg)}
   /* Stacked: the image returns to normal flow, so the wrapper needs its own
@@ -359,6 +369,10 @@ a:hover > .icon-arrow{transform:translate(1px,-1px);transition:transform .15s}
 .mission-opening { margin: 28px 0 0; font-size: clamp(31px,3.2vw,46px); color: var(--orange); }
 /* Mid-page sections keep .section / .section-sm symmetric. One-sided overrides
    here previously made top and bottom differ (48/88, 88/48, 48/56). */
+/* Same measure as .mission-copy below, so the hero headline shares a left edge
+   with the body copy. Without it the hero ran to the full 1180px container
+   while everything beneath sat at 980px, leaving the two 100px apart. */
+.mission-hero-inner { max-width: 980px; }
 .mission-copy { max-width: 980px; }
 .mission-copy > p { font-size: 19px; line-height: 1.75; color: var(--muted); }
 .mission-copy > h3 { margin-top: 42px; font-size: 34px; }
