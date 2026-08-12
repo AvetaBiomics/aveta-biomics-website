@@ -34,7 +34,7 @@ export function NewsList({ items }: { items: NewsItem[] }) {
   return (
     <>
       <div className="news-toolbar">
-        <div><h2>Press releases</h2></div>
+        <div><h2>Press release/Aveta in news</h2></div>
         <YearSelect
           label="Filter press releases by year"
           value={year}

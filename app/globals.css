@@ -304,7 +304,9 @@ a:hover > .icon-arrow{transform:translate(1px,-1px);transition:transform .15s}
 }
 @media (max-width: 560px){
   :root{--gutter:20px;--section-y:var(--s-8);--section-y-sm:var(--s-6)}
-  h1{font-size:46px}h2{font-size:34px}.home-hero-copy h1{font-size:52px}.orbit{width:400px;height:400px}.orbit.two{width:310px;height:310px}.ecosystem-wrap{min-height:440px}.tumor-core{transform:scale(.78)}.ecosystem-label{font-size:10px}.tumor-state{grid-template-columns:90px 1fr}.cell-cluster{width:88px}.pathway-card{padding:28px}.conference-card{padding:22px}.actions{flex-direction:column;align-items:stretch}.button,.button-outline,.arrow-link{width:100%}.news-toolbar{align-items:flex-start;gap:20px}.bio-modal{padding:28px 22px}
+  h1{font-size:46px}h2{font-size:34px}.home-hero-copy h1{font-size:52px}.orbit{width:400px;height:400px}.orbit.two{width:310px;height:310px}.ecosystem-wrap{min-height:440px}.tumor-core{transform:scale(.78)}.ecosystem-label{font-size:10px}.tumor-state{grid-template-columns:90px 1fr}.cell-cluster{width:88px}.pathway-card{padding:28px}.conference-card{padding:22px}.actions{flex-direction:column;align-items:stretch}.button,.button-outline,.arrow-link{width:100%}/* Stack: side by side, the longer heading is squeezed to ~180px and wraps to
+   three lines next to the year filter. */
+.news-toolbar{flex-direction:column;align-items:flex-start;gap:20px}.bio-modal{padding:28px 22px}
 }
 
 .centered-copy{max-width:900px;text-align:center}.centered-copy .lead{margin-inline:auto}.center-actions{justify-content:center}.soft-bg{background:var(--soft)}
