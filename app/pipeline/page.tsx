@@ -11,7 +11,14 @@ export default function PipelinePage() {
     <Shell active="/pipeline">
       <main>
         <h1 className="sr-only">APG-157 development programs</h1>
-        <section className="image-banner"><img src="/assets/pipeline-patient-doctor.jpg" alt="A patient speaking with his physician" /></section>
+        <section className="image-banner"><picture>
+    {/* The desktop asset is 2.99:1 — cropped to a near-square mobile box, cover
+        would show only ~30% of its width, an extreme zoom on faces and hands.
+        Below 860px, swap to a 1.685:1 crop of the same photo so most of the
+        scene stays visible. */}
+    <source media="(max-width: 860px)" srcSet="/assets/pipeline-patient-doctor-mobile.jpg" />
+    <img src="/assets/pipeline-patient-doctor.jpg" alt="A patient speaking with his physician" />
+  </picture></section>
         <section className="pipeline-intro"><div className="container"><p className="lead">Aveta is advancing APG-157 across clinical and preclinical programs in cancers where reprogramming the tumor immune microenvironment may offer a new therapeutic approach.</p></div></section>
 
         <section className="section-sm"><div className="container">

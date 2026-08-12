@@ -190,7 +190,12 @@ h3 { font-size: 24px; line-height: 1.2; }
 .image-banner{height:430px;overflow:hidden}.image-banner img{width:100%;height:100%;object-fit:cover;object-position:center top}.pipeline-intro{padding:var(--s-7) 0}.pipeline-intro .lead{max-width:940px}.pipeline-table{border:1px solid var(--line);border-radius:12px;overflow:hidden}.pipeline-head,.pipeline-row{display:grid;grid-template-columns:150px 240px 1fr 160px;align-items:stretch}.pipeline-head{background:#f7f9ff;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.pipeline-head>div,.pipeline-row>div{padding:18px;border-right:1px solid var(--line)}.pipeline-head>div:last-child,.pipeline-row>div:last-child{border-right:0}/* The four label columns must share the exact coordinate space as
    .stage-track's four 25% bands: same 18px cell inset as the row cells, and
    no column gap. Any difference makes the headings drift off their bars. */
-.pipeline-head .stage-labels{display:grid;grid-template-columns:repeat(4,1fr);gap:0;align-items:center;text-align:center}.pipeline-row{min-height:118px;border-top:1px solid var(--line);align-items:center}.program-name{font-weight:800;font-size:18px}.indication{font-size:17px;line-height:1.5}.designation{display:inline-block;margin:5px 5px 0 0;padding:4px 8px;border:1px solid var(--orange);border-radius:3px;color:var(--orange);font-size:10px;font-weight:800}.designation.blue{border-color:var(--navy);color:var(--navy)}.stage-track{position:relative;height:42px;background:repeating-linear-gradient(90deg,#f4f6fb 0,#f4f6fb calc(25% - 1px),#dfe4ef 25%);border-radius:5px}.stage-bar{height:100%;display:flex;align-items:center;justify-content:flex-end;padding-right:14px;color:white;font-weight:700;background:linear-gradient(90deg,#092363,#0b348d);border-right:4px solid var(--orange);border-radius:5px}/* Bars snap to the 25% band boundaries so none overhangs a phase it is not in.
+/* minmax(0,1fr) rather than 1fr: a plain 1fr floors at min-content, so the
+   widest label ("Preclinical") claimed extra width and pushed Phase 1/2/3 off
+   their bars — 16px of drift at mobile widths. minmax(0,…) forces four exactly
+   equal columns that match .stage-track's four 25% bands. */
+.pipeline-head .stage-labels{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;align-items:center;text-align:center}.pipeline-row{min-height:118px;border-top:1px solid var(--line);align-items:center}/* Never let a long program name paint outside its cell into the next column. */
+.program-name{font-weight:800;font-size:18px;overflow-wrap:break-word;min-width:0}.indication{font-size:17px;line-height:1.5}.designation{display:inline-block;margin:5px 5px 0 0;padding:4px 8px;border:1px solid var(--orange);border-radius:3px;color:var(--orange);font-size:10px;font-weight:800}.designation.blue{border-color:var(--navy);color:var(--navy)}.stage-track{position:relative;height:42px;background:repeating-linear-gradient(90deg,#f4f6fb 0,#f4f6fb calc(25% - 1px),#dfe4ef 25%);border-radius:5px}.stage-bar{height:100%;display:flex;align-items:center;justify-content:flex-end;padding-right:14px;color:white;font-weight:700;background:linear-gradient(90deg,#092363,#0b348d);border-right:4px solid var(--orange);border-radius:5px}/* Bars snap to the 25% band boundaries so none overhangs a phase it is not in.
    p12 (Phase 1b/2a) ends mid-Phase-2; p2 completes the Phase 2 band. */
 .stage-bar.p3{width:100%}.stage-bar.p12{width:62.5%}.stage-bar.p2{width:75%}.stage-bar.pre{width:25%}/* nowrap keeps the arrow on the same line as the NCT number; the Study column
    is widened to 160px because the link needs 118px + 36px cell padding. */
@@ -255,11 +260,31 @@ a:hover > .icon-arrow{transform:translate(1px,-1px);transition:transform .15s}
   .nav-cta{margin-top:var(--s-2)}
 }
 @media (max-width: 1050px){
-  .pipeline-head,.pipeline-row{grid-template-columns:120px 200px 1fr 160px}
+  /* Program column holds "Bevacizumab", which measures 119px; at 120px wide
+     (84px inside its 18px padding) the word painted 35px over the Indication
+     column and collided with its text. 160px keeps the longest program name
+     inside its own cell. */
+  .pipeline-head,.pipeline-row{grid-template-columns:160px 200px 1fr 160px}
+  /* The phase columns are a fixed quarter of the stage track each, so the
+     widest label ("Preclinical", 89px at 12px) must be shrunk to fit 73px
+     rather than allowed to widen its column — widening would push the labels
+     out of line with the bars beneath them. */
+  .pipeline-head .stage-labels{font-size:10px;letter-spacing:.02em}
+  /* Same constraint inside the bars: the Preclinical bar is a quarter of the
+     track (71-73px here) but its label needed 96px, so the word was cut off
+     mid-way. Shrinking the label keeps it inside the bar; the bar widths
+     themselves are unchanged, since they encode the development stage. */
+  .stage-bar{font-size:11px;padding-right:8px}
 }
 @media (max-width: 860px){
   :root{--header-h:70px}
   .brand img{width:190px}
+  /* 430px is tuned for the wide desktop crop; combined with a narrow viewport
+     it forced object-fit:cover into an extreme zoom regardless of source
+     image. Shorter box + the picture element's own 1.685:1 crop (above) keep
+     most of the scene visible instead of just faces and hands. */
+  .image-banner{height:260px}
+  .image-banner picture{display:block;height:100%}
   .home-hero{grid-template-columns:1fr}.home-hero-copy{padding:70px 28px}.ecosystem-wrap{min-height:500px}.split,.science-hero,.contact-grid{grid-template-columns:1fr}.science-hero figure{order:-1}/* Stack photo above copy. The previous version kept the two-column grid and
    overlaid the copy on the photo using a fixed 360px offset against a photo
    sized at 60% of a content-driven height; the two scaled independently, so
@@ -396,7 +421,11 @@ a:hover > .icon-arrow{transform:translate(1px,-1px);transition:transform .15s}
   .mission-principles { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
-  .people-grid.people-portraits { grid-template-columns: 1fr; }
+  .people-grid.people-portraits { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .people-portraits .person-copy { min-height: 0; padding: 12px; gap: 4px; }
+  .people-portraits .person-copy strong { font-size: 14px; line-height: 1.25; }
+  .people-portraits .person-copy span { font-size: 11px; }
+  .people-portraits .person-copy small { font-size: 10px; }
 }
 /* Password-only review gate. The approved site begins unchanged after access. */
 .review-gate {
