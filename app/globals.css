@@ -280,7 +280,10 @@ a:hover > .icon-arrow{transform:translate(1px,-1px);transition:transform .15s}
 
 .home-outcome-figure{width:100%;max-width:none;margin:8px auto 0}.home-outcome-figure>img{display:block;width:100%;height:auto}
 
-.about-approved-hero{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-8);padding-top:var(--s-10);padding-bottom:var(--s-6);align-items:start}.about-approved-hero h1{font-size:clamp(48px,5vw,67px)}.about-approved-hero .lead{max-width:570px}.about-approved-hero aside{background:linear-gradient(135deg,#f4f7ff,#eef3ff);padding:30px;border-radius:10px}.glance{padding:15px 18px 18px;border-left:3px solid;margin:12px 0}.glance small{display:block;color:var(--blue);font-weight:800;letter-spacing:.08em;margin-bottom:10px}.glance strong{display:block;font-size:25px;line-height:1.2}.orange-line{border-color:var(--orange)}.green-line{border-color:var(--green)}.purple-line{border-color:#7c4dff}.about-process{display:grid;grid-template-columns:1fr 70px 1fr 70px 1fr;align-items:center;max-width:850px;margin:30px auto 0}.about-process article{text-align:center}.about-process article b{display:block;font-size:28px;font-weight:400;color:var(--orange)}.about-process article:nth-of-type(2) b{color:#7c4dff}.about-process article:nth-of-type(3) b{color:var(--green)}.about-process>i{font-size:38px;color:var(--navy);font-style:normal;text-align:center}.process-icon{width:80px;height:80px;border:2px solid;border-radius:50%;display:grid;place-items:center;margin:8px auto 12px;font-size:34px}.orange-border{border-color:var(--orange);color:var(--orange)}.purple-border{border-color:#7c4dff;color:#7c4dff}.green-border{border-color:var(--green);color:var(--green)}.about-process h3{font-size:14px;margin:8px 0}.about-process p{font-size:13px;color:var(--muted);line-height:1.55}/* The rules above draw top/bottom borders; without vertical padding the text
+.about-approved-hero{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-8);padding-top:var(--s-10);padding-bottom:var(--s-6);align-items:start}.about-approved-hero h1{font-size:clamp(48px,5vw,67px)}.about-approved-hero .lead{max-width:570px}.about-approved-hero aside{background:linear-gradient(135deg,#f4f7ff,#eef3ff);padding:30px;border-radius:10px}.glance{padding:15px 18px 18px;border-left:3px solid;margin:12px 0}.glance small{display:block;color:var(--blue);font-weight:800;letter-spacing:.08em;margin-bottom:10px}.glance strong{display:block;font-size:25px;line-height:1.2}.orange-line{border-color:var(--orange)}.green-line{border-color:var(--green)}.purple-line{border-color:#7c4dff}.about-process{display:grid;grid-template-columns:1fr 70px 1fr 70px 1fr;align-items:center;max-width:850px;margin:30px auto 0}.about-process article{text-align:center}.about-process article b{display:block;font-size:28px;font-weight:400;color:var(--orange)}.about-process article:nth-of-type(2) b{color:#7c4dff}.about-process article:nth-of-type(3) b{color:var(--green)}/* justify-self keeps this arrow sized to its glyph. As a grid item it would
+   otherwise stretch the full column width, and the 90deg rotation applied on
+   mobile would swing that long box 85px past the section's bottom edge. */
+.about-process>i{font-size:38px;color:var(--navy);font-style:normal;text-align:center;justify-self:center}.process-icon{width:80px;height:80px;border:2px solid;border-radius:50%;display:grid;place-items:center;margin:8px auto 12px;font-size:34px}.orange-border{border-color:var(--orange);color:var(--orange)}.purple-border{border-color:#7c4dff;color:#7c4dff}.green-border{border-color:var(--green);color:var(--green)}.about-process h3{font-size:14px;margin:8px 0}.about-process p{font-size:13px;color:var(--muted);line-height:1.55}/* The rules above draw top/bottom borders; without vertical padding the text
    column (which sets the band height) sat flush against both of them. */
 .about-why{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:var(--section-y-sm) 0}/* Square image sized to the height of the copy beside it, so the two columns
    start and end on the same lines. The image is taken out of flow inside a
@@ -314,7 +317,9 @@ a:hover > .icon-arrow{transform:translate(1px,-1px);transition:transform .15s}
 
 .publications-contact{text-align:center}.publications-contact h2{margin:0}.publications-contact p{color:#d7e0f8}.publications-contact .actions{justify-content:center}
 
-@media (max-width:860px){.approved-home-hero,.about-approved-hero,.science-approved-hero,.join-approved-hero{grid-template-columns:1fr}.approved-home-hero .home-copy,.join-approved-copy{padding:var(--s-7) var(--gutter)}.home-ecosystem-figure{width:min(100%,510px);margin:0 auto 24px}.about-process{grid-template-columns:1fr}.about-process>i{transform:rotate(90deg)}
+@media (max-width:860px){.approved-home-hero,.about-approved-hero,.science-approved-hero,.join-approved-hero{grid-template-columns:1fr}.approved-home-hero .home-copy,.join-approved-copy{padding:var(--s-7) var(--gutter)}/* Matches the copy's own padding above it, so the stacked hero has equal space
+   at its top and bottom rather than 56px above and 24px below. */
+.home-ecosystem-figure{width:min(100%,510px);margin:0 auto var(--s-7)}.about-process{grid-template-columns:1fr}.about-process>i{transform:rotate(90deg)}
   /* Stacked: the image returns to normal flow, so the wrapper needs its own
      square box — an absolutely positioned child would collapse it to zero. */
   .about-why-media{aspect-ratio:1/1;width:100%;max-width:420px;margin-inline:auto}
@@ -326,7 +331,7 @@ a:hover > .icon-arrow{transform:translate(1px,-1px);transition:transform .15s}
 .join-approved-hero img{position:static;height:260px;object-position:center}
 .join-approved-copy{max-width:none;padding:var(--s-7) var(--gutter)}}
 @media (max-width:860px){.logic-head h2{white-space:normal}}
-@media (max-width:860px){.science-podcast{align-items:flex-start;flex-direction:column;padding:30px}.science-podcast .button{width:auto}}
+@media (max-width:860px){.science-podcast{align-items:flex-start;flex-direction:column;padding:var(--s-4)}.science-podcast .button{width:auto}}
 @media (max-width:560px){.people-grid,.people-grid.advisors{grid-template-columns:1fr}.foundation-grid article{padding:20px 0}.mechanism-grid article{padding:20px 0}.join-paths article{padding:28px 22px}}
 
 /* Approved typography, people and mission updates */
