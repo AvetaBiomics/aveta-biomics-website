@@ -395,7 +395,8 @@ a:hover > .icon-arrow{transform:translate(1px,-1px);transition:transform .15s}
 /* This headshot is framed tighter than the others, so the shared "center 20%"
    cropped the top of the head. Pulling the focal point to the top of the frame
    shows the image lower in its box. Matched in the bio modal below. */
-.people-portraits .person-card img[src*="andrew-sikora"] { object-position: center 0%; }
+.people-portraits .person-card img[src*="andrew-sikora"],
+.people-portraits .person-card img[src*="peter-dolan"] { object-position: center 0%; }
 .people-portraits .person-copy { min-height: 132px; padding: 18px; gap: 6px; }
 .people-portraits .person-copy strong { font-size: 17px; line-height: 1.25; }
 .people-portraits .person-copy span { font-size: 13px; line-height: 1.4; }
@@ -403,7 +404,8 @@ a:hover > .icon-arrow{transform:translate(1px,-1px);transition:transform .15s}
 .person-placeholder { display: grid; place-items: center; background: #edf0f5; color: #aab0bc; font-size: 62px; }
 .person-placeholder.large { width: 260px; aspect-ratio: 4/5; border-radius: 8px; }
 .bio-modal img { border-radius: 8px; aspect-ratio: 4/5; object-fit: cover; object-position: center 20%; }
-.bio-modal img[src*="andrew-sikora"] { object-position: center 0%; }
+.bio-modal img[src*="andrew-sikora"],
+.bio-modal img[src*="peter-dolan"] { object-position: center 0%; }
 
 .mission-hero { padding: var(--hero-y) 0; background: linear-gradient(135deg, #f4f7ff, #eef3ff); }
 .mission-hero h1 { max-width: none; color: var(--navy); white-space: nowrap; font-size: clamp(54px,5.25vw,76px); }
