@@ -52,12 +52,12 @@ img { max-width: 100%; display: block; }
 .header-inner { max-width: calc(var(--page-max) + var(--gutter) * 2); height: var(--header-h); margin: 0 auto; padding: 0 var(--gutter); display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); }
 .brand { display: inline-flex; align-items: center; flex: 0 0 auto; }
 .brand img { width: 200px; height: auto; }
-.main-nav { display: flex; align-items: center; gap: 14px; font-size: 14px; font-weight: 700; color: #06134b; white-space: nowrap; }
+.main-nav { display: flex; align-items: center; gap: 14px; font-size: 15px; font-weight: 700; color: #06134b; white-space: nowrap; }
 /* Desktop only: let the nav fill the space after the brand, then split the
    leftover between two auto margins so the link group sits centred between the
    brand and the Join Us button. Scoped to min-width because the mobile menu is
    a stretched column, where an auto side margin would shrink its items. */
-@media (min-width: 1160px){
+@media (min-width: 1220px){
   .main-nav { flex: 1; }
   .main-nav > a:first-child { margin-left: auto; }
   .main-nav > .nav-cta { margin-left: auto; }
@@ -248,11 +248,12 @@ a:hover > .icon-arrow{transform:translate(1px,-1px);transition:transform .15s}
 
 .site-footer{border-top:1px solid var(--line);padding:var(--s-4) 0;background:white}.footer-inner{width:min(var(--page-max),calc(100% - var(--gutter) * 2));margin:0 auto;display:grid;grid-template-columns:260px 1fr 180px;gap:var(--s-4);align-items:start}.footer-brand .brand img{width:200px}.footer-brand p{font-size:13px;color:var(--muted);line-height:1.6;margin-top:15px}.footer-nav{display:grid;grid-template-columns:repeat(4,auto);gap:16px 28px;font-size:12px;font-weight:700}.footer-nav a:hover,.footer-nav a.active{color:var(--blue)}.footer-contact{overflow-wrap:anywhere}.copyright{text-align:right;font-size:13px;color:var(--muted)}
 
-/* The full horizontal nav measures 1056px wide, so it needs a 1112px viewport
-   to seat the Join Us button. Switching at 1160px leaves ~4% headroom for
-   font-metric differences between browsers. Below this it must become the
-   menu, or the button is pushed off-screen with no other way to reach it. */
-@media (max-width: 1159px){
+/* At 15px the nav's nine items measure 877px, so with the 200px logo and its
+   24px gap it needs a 1157px viewport to seat the Join Us button. Switching at
+   1220px leaves ~5% headroom for font-metric differences between browsers.
+   Below this it must become the menu, or the button is pushed off-screen with
+   no other way to reach it. */
+@media (max-width: 1219px){
   .menu-toggle{display:block}
   .main-nav{display:none;position:absolute;left:0;right:0;top:var(--header-h);background:#fff;padding:var(--s-3) var(--gutter) var(--s-4);flex-direction:column;align-items:stretch;gap:0;border-bottom:1px solid var(--line);box-shadow:0 14px 28px rgba(0,0,0,.08)}
   .main-nav.open{display:flex}
@@ -412,7 +413,10 @@ a:hover > .icon-arrow{transform:translate(1px,-1px);transition:transform .15s}
 .join-mindset-section .dual-head { margin-bottom: var(--s-4); }
 
 @media (max-width: 1050px) {
-  .main-nav { gap: 10px; font-size: 12px; }
+  /* The gap/font-size override that used to live here was written for the
+     horizontal nav at this width. The nav is now the dropdown menu well above
+     1050px, so it only shrank the menu's own links to 12px — smaller than the
+     same links at 1051px and below a comfortable touch target. */
   .people-grid.people-portraits { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (max-width: 860px) {
