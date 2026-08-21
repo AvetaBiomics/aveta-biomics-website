@@ -4,12 +4,14 @@ import type { Metadata } from "next";
  * Canonical origin for the site.
  *
  * Absolute URLs are required for canonical tags, Open Graph and the sitemap.
- * Set NEXT_PUBLIC_SITE_URL in Vercel if the production hostname differs from
- * the default below — every absolute URL the site emits derives from this one
- * value, so it only has to be corrected in one place.
+ * The apex is the real production host — it is the only domain on the Vercel
+ * project, and the www subdomain does not resolve, so pointing canonicals at
+ * www would send crawlers to a dead hostname. Override with
+ * NEXT_PUBLIC_SITE_URL if that ever changes; every absolute URL the site emits
+ * derives from this one value.
  */
 export const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.avetabiomics.com"
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://avetabiomics.com"
 ).replace(/\/$/, "");
 
 export const siteName = "Aveta Biomics";
