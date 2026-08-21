@@ -1,7 +1,15 @@
 import Link from "next/link";
 import { Arrow, ExternalArrow, Shell } from "../components/SiteChrome";
+import { pageMetadata } from "../lib/seo";
 
 const email="betterhealth@avetabiomics.com";
+export const metadata = pageMetadata({
+  title: "Join Us",
+  description:
+    "Build with Aveta or collaborate alongside us. We welcome scientists, clinicians and partners who share our urgency to turn good science into treatments.",
+  path: "/join-us",
+});
+
 export default function JoinUsPage(){return <Shell active="/join-us"><main>
   <section className="join-approved-hero"><div className="join-approved-copy"><h1>Some problems are<br />too important to<br />solve alone.</h1><p className="lead">Aveta brings together scientists, clinicians, builders and partners to create safe, oral immunotherapies for hard-to-treat cancers.</p></div><picture>
     {/* Desktop artwork carries a white gradient baked into its left 45%, which the
@@ -9,7 +17,7 @@ export default function JoinUsPage(){return <Shell active="/join-us"><main>
         they get the ungraded original instead — the baked fade would otherwise
         read as a washed-out band across the image. */}
     <source media="(max-width: 860px)" srcSet="/assets/join-us-approved-hero-mobile.jpg" />
-    <img src="/assets/join-us-approved-hero.jpg" alt="Scientists, clinicians and partners collaborating around a table" />
+    <img src="/assets/join-us-approved-hero.jpg" width={2400} height={803} alt="Scientists, clinicians and partners collaborating around a table" />
   </picture></section>
 
   <section className="section join-paths-section"><div className="container"><div className="dual-head"><h2>Different paths. A shared purpose.</h2><p className="lead">Whether you want to build from within Aveta or collaborate alongside us, what matters is a willingness to think differently and a shared urgency to turn good science into meaningful treatments.</p></div><div className="join-paths"><article><p className="eyebrow green">BUILD WITH US</p><h2>Careers at Aveta</h2><p>We are a small, entrepreneurial team working across science, medicine and drug development. We value scientific depth, versatility, candid thinking and people who take responsibility for moving important work forward.</p><hr/><p>If curiosity keeps you asking better questions—and urgency keeps you moving—you may feel at home here.</p><Link className="button" href="/careers">Explore opportunities <Arrow /></Link><a className="arrow-link" href={`mailto:${email}?subject=Introduction to Aveta`}>Introduce yourself <ExternalArrow /></a></article><article id="collaborate"><p className="eyebrow">WORK WITH US</p><h2>Collaborate with Aveta</h2><p>Important advances rarely come from one organization alone. We welcome conversations with academic researchers, clinicians, biotechnology and pharmaceutical companies, and others who see opportunities across our platform and pipeline.</p><hr/><p>Bring a complementary capability, a compelling biological question or a shared ambition for patients.</p><a className="button" href={`mailto:${email}?subject=Collaboration with Aveta`}>Start a conversation <Arrow /></a><a className="arrow-link" href="/science">Explore our science <ExternalArrow /></a></article></div></div></section>

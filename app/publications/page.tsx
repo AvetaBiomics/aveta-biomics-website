@@ -1,4 +1,5 @@
 import { Arrow, DownloadArrow, ExternalArrow, Shell } from "../components/SiteChrome";
+import { pageMetadata } from "../lib/seo";
 
 const conferences = [
   { meeting:"AACR", year:"2026", type:"POSTER", phase:"PHASE 2", title:"Down regulation of HPV 16 and NF-κB and upregulation of gigaxonin and immune markers in APG-157 treated head and neck cancer: A phase 2A clinical investigation", summary:"Phase 2A biomarker analyses linked APG-157 treatment to reduced HPV16 and NF-κB signaling, increased gigaxonin and activation of systemic immune pathways.", view:"/docs/aacr-2026-poster.pdf", download:"/docs/aacr-2026-poster.pdf", downloadLabel:"Download Poster" },
@@ -14,16 +15,23 @@ const papers = [
   {year:"2020",meta:"PHASE 1 · CLINICAL",title:"A Randomized, Phase 1, Placebo-Controlled Trial of APG-157 in Oral Cancer Demonstrates Systemic Absorption and an Inhibitory Effect on Cytokines and Tumor-Associated Microbes",citation:"Cancer. 2020;126(8):1668–1682.",summary:"Oral APG-157 demonstrated systemic absorption, reduced inflammatory signals and increased T-cell recruitment into the tumor.",href:"https://pubmed.ncbi.nlm.nih.gov/32022261/"},
 ];
 
+export const metadata = pageMetadata({
+  title: "Publications and Presentations",
+  description:
+    "Peer-reviewed publications and conference presentations on APG-157, covering Phase 1 and Phase 2A clinical data, biomarkers and preclinical research.",
+  path: "/publications",
+});
+
 export default function PublicationsPage(){
   return <Shell active="/publications"><main>
     <section className="simple-hero"><div className="container"><p className="eyebrow">PUBLICATIONS</p><h1>Science, <span className="accent">shared.</span></h1></div></section>
     <section className="section-sm"><div className="container">
       <div className="tabs"><a className="active" href="#conferences">CONFERENCE PRESENTATIONS</a><a href="#papers">PEER-REVIEWED PUBLICATIONS</a></div>
       <div id="conferences" className="conference-grid">{conferences.map((item)=><article className="conference-card" key={item.meeting}>
-        <div className="meeting">{item.meeting} <span>{item.year}</span></div><div><span className="tag">{item.type}</span><span className="tag orange">{item.phase}</span></div><h3 style={{marginTop:18}}>{item.title}</h3><p>{item.summary}</p><div className="link-row"><a className="text-link" href={item.view} target="_blank" rel="noreferrer">View {item.meeting==='AHNS'?'Presentation':'Abstract'} <ExternalArrow /></a><a className="text-link" href={item.download} download>{item.downloadLabel} <DownloadArrow /></a></div>
+        <div className="meeting">{item.meeting} <span>{item.year}</span></div><div><span className="tag">{item.type}</span><span className="tag orange">{item.phase}</span></div><h2 style={{marginTop:18}}>{item.title}</h2><p>{item.summary}</p><div className="link-row"><a className="text-link" href={item.view} target="_blank" rel="noreferrer">View {item.meeting==='AHNS'?'Presentation':'Abstract'} <ExternalArrow /></a><a className="text-link" href={item.download} download>{item.downloadLabel} <DownloadArrow /></a></div>
       </article>)}</div>
     </div></section>
-    <section id="papers" className="section"><div className="container"><p className="eyebrow">PEER-REVIEWED PUBLICATIONS</p><div className="pub-list">{papers.map(p=><article className="pub-row" key={p.year+p.title}><div className="pub-year">{p.year}<small>{p.meta}</small></div><div className="pub-copy"><h3>{p.title}</h3><em>{p.citation}</em><p>{p.summary}</p></div><a className="button-outline" href={p.href} target="_blank" rel="noreferrer">View Paper <ExternalArrow /></a></article>)}</div></div></section>
+    <section id="papers" className="section"><div className="container"><p className="eyebrow">PEER-REVIEWED PUBLICATIONS</p><div className="pub-list">{papers.map(p=><article className="pub-row" key={p.year+p.title}><div className="pub-year">{p.year}<small>{p.meta}</small></div><div className="pub-copy"><h2>{p.title}</h2><em>{p.citation}</em><p>{p.summary}</p></div><a className="button-outline" href={p.href} target="_blank" rel="noreferrer">View Paper <ExternalArrow /></a></article>)}</div></div></section>
     <section className="section-sm navy-bg"><div className="container publications-contact"><h2>Interested in Aveta’s research?</h2><p>For scientific inquiries, collaboration opportunities or access to supporting materials, contact our team.</p><div className="actions"><a className="button-outline" href="mailto:betterhealth@avetabiomics.com?subject=Scientific inquiry">Scientific Inquiry <Arrow /></a><a className="button-outline" href="mailto:betterhealth@avetabiomics.com?subject=Partnership inquiry">Partner with Aveta <Arrow /></a></div></div></section>
   </main></Shell>
 }

@@ -1,4 +1,12 @@
 import { Arrow, Shell } from "../components/SiteChrome";
+import { pageMetadata } from "../lib/seo";
+
+export const metadata = pageMetadata({
+  title: "Expanded Access Policy",
+  description:
+    "Aveta's policy on physician requests for expanded access to APG-157 for patients with serious or life-threatening cancer who cannot join a clinical trial.",
+  path: "/expanded-access",
+});
 
 export default function ExpandedAccessPage(){return <Shell active="/expanded-access"><main>
   <section className="photo-hero expanded-access-hero"><picture>
@@ -7,7 +15,7 @@ export default function ExpandedAccessPage(){return <Shell active="/expanded-acc
         they get the ungraded original — the baked fade would otherwise read as
         a washed-out band across the image. */}
     <source media="(max-width: 860px)" srcSet="/assets/expanded-access-hero-mobile.jpg" />
-    <img className="photo" src="/assets/expanded-access-hero.jpg" alt="A patient and family member speaking with a physician" />
+    <img className="photo" src="/assets/expanded-access-hero.jpg" width={2400} height={803} alt="A patient and family member speaking with a physician" />
   </picture><div className="photo-hero-copy"><p className="eyebrow">EXPANDED ACCESS</p><h1>A thoughtful pathway when clinical trials are not an option.</h1><p className="lead">Aveta evaluates physician requests for access to APG-157 in limited circumstances for patients with serious or life-threatening cancer.</p></div></section>
   <section className="section"><div className="policy-wrap container"><h2>Aveta Biomics Expanded Access Policy</h2><p className="body-copy">Clinical trials remain the primary pathway for access to APG-157 and are essential to establishing its safety and efficacy. We recognize, however, that some patients with serious or life-threatening cancer may be unable to participate in a clinical trial. In limited circumstances, Aveta may consider physician requests for expanded access in accordance with applicable laws and FDA requirements.</p><div className="notice"><strong>APG-157 is an investigational product and has not been approved by the FDA or any other regulatory authority. Its safety and efficacy have not been established.</strong></div></div></section>
   <section className="section-sm"><div className="policy-wrap container split"><div><h3>What is expanded access?</h3><p className="body-copy">Expanded access, sometimes called compassionate use, allows an eligible patient to receive an investigational therapy outside a clinical trial when no comparable or satisfactory treatment option is available.</p></div><div><h3>Who may be considered</h3><ul className="criteria-list"><li>Serious or life-threatening cancer</li><li>No comparable or satisfactory treatment option</li><li>Unable to participate in an APG-157 clinical trial</li><li>Potential benefit justifies the potential risks</li><li>Access would not compromise clinical trials or development</li></ul></div></div></section>

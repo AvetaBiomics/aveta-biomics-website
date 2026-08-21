@@ -12,6 +12,8 @@ export type Role = {
   reportsTo: string;
   location: string;
   employment: string;
+  /** ISO date the role was published. Feeds JobPosting.datePosted. */
+  postedOn: string;
   /** One-line summary for the listing row. */
   summary: string;
   /** Position summary, one paragraph per entry. */
@@ -29,6 +31,7 @@ export const roles: Role[] = [
     reportsTo: "Vice President, Clinical Development Operations",
     location: "Boston, MA",
     employment: "Hybrid · Full time",
+    postedOn: "2026-08-21",
     summary:
       "Hands-on Sponsor operational lead for the global Phase 3 AVTA30-01 head and neck cancer study, the glioblastoma program and other emerging clinical studies.",
     overview: [

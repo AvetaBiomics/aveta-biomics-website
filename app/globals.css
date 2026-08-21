@@ -44,7 +44,13 @@ html { scroll-behavior: smooth; }
 body { margin: 0; background: #fff; color: var(--ink); font-family: "Inter", Arial, Helvetica, sans-serif; }
 a { color: inherit; text-decoration: none; }
 button, input, textarea { font: inherit; }
-img { max-width: 100%; display: block; }
+/* height:auto is required alongside the width/height attributes now on every
+   <img>: without it the attribute height is honoured while max-width scales
+   the width, distorting the image. Rules that set an explicit height (the
+   photo heroes, the portrait grid) are more specific and still win — this
+   only supplies the aspect ratio for images the CSS does not size, which is
+   what removes the layout shift. */
+img { max-width: 100%; height: auto; display: block; }
 .sr-only { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0,0,0,0) !important; white-space: nowrap !important; border: 0 !important; }
 
 .site-header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.96); border-bottom: 1px solid #e8ebf4; backdrop-filter: blur(14px); }
@@ -225,8 +231,8 @@ a:hover > .icon-arrow{transform:translate(1px,-1px);transition:transform .15s}
 .tabs{display:flex;flex-wrap:wrap;gap:0 34px;border-bottom:1px solid var(--line);margin-bottom:36px}.tabs a{padding:18px 0 14px;color:var(--muted);font-weight:800;font-size:18px}
 /* Section eyebrow on the publications page only; the other 20 eyebrows across
    the site stay at 14px. */
-#papers .eyebrow{font-size:18px}.tabs a.active{color:var(--blue);border-bottom:3px solid var(--blue)}.conference-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.conference-card{min-height:330px;border:1px solid var(--line);border-top:3px solid var(--blue);padding:28px;border-radius:10px;display:flex;flex-direction:column}.conference-card:nth-child(3){border-top-color:var(--green)}.conference-card:nth-child(4){border-top-color:var(--orange)}.conference-card h3{font-size:20px}.conference-card .meeting{font-size:42px;font-weight:800;margin-bottom:10px}.conference-card .meeting span{font-size:17px;color:var(--blue)}.tag{display:inline-block;border:1px solid var(--blue);border-radius:3px;padding:4px 8px;margin-right:6px;font-size:10px;font-weight:800}.tag.orange{border-color:var(--orange);color:var(--orange)}.conference-card p{color:var(--muted);line-height:1.6}.conference-card .link-row{margin-top:auto;display:flex;gap:24px;flex-wrap:wrap}.pub-list{border-top:1px solid var(--line)}/* Third column fits the View Paper button, which needs 161px on one line. */
-.pub-row{display:grid;grid-template-columns:150px 1fr 170px;gap:var(--s-3);align-items:start;padding:var(--s-4) 0;border-bottom:1px solid var(--line)}.pub-year{font-size:28px;font-weight:800}.pub-year small{display:block;margin-top:10px;color:var(--blue);font-size:11px;line-height:1.6}.pub-copy h3{font-size:18px;margin-bottom:8px}.pub-copy em{display:block;color:var(--muted);font-size:14px;margin-bottom:8px}.pub-copy p{margin:0;color:var(--muted);line-height:1.5;font-size:15px}
+#papers .eyebrow{font-size:18px}.tabs a.active{color:var(--blue);border-bottom:3px solid var(--blue)}.conference-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.conference-card{min-height:330px;border:1px solid var(--line);border-top:3px solid var(--blue);padding:28px;border-radius:10px;display:flex;flex-direction:column}.conference-card:nth-child(3){border-top-color:var(--green)}.conference-card:nth-child(4){border-top-color:var(--orange)}.conference-card h2{font-size:20px}.conference-card .meeting{font-size:42px;font-weight:800;margin-bottom:10px}.conference-card .meeting span{font-size:17px;color:var(--blue)}.tag{display:inline-block;border:1px solid var(--blue);border-radius:3px;padding:4px 8px;margin-right:6px;font-size:10px;font-weight:800}.tag.orange{border-color:var(--orange);color:var(--orange)}.conference-card p{color:var(--muted);line-height:1.6}.conference-card .link-row{margin-top:auto;display:flex;gap:24px;flex-wrap:wrap}.pub-list{border-top:1px solid var(--line)}/* Third column fits the View Paper button, which needs 161px on one line. */
+.pub-row{display:grid;grid-template-columns:150px 1fr 170px;gap:var(--s-3);align-items:start;padding:var(--s-4) 0;border-bottom:1px solid var(--line)}.pub-year{font-size:28px;font-weight:800}.pub-year small{display:block;margin-top:10px;color:var(--blue);font-size:11px;line-height:1.6}.pub-copy h2{font-size:18px;margin-bottom:8px}.pub-copy em{display:block;color:var(--muted);font-size:14px;margin-bottom:8px}.pub-copy p{margin:0;color:var(--muted);line-height:1.5;font-size:15px}
 
 /* News */
 .news-toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:40px}/* Custom dropdown (see YearSelect.tsx). The trigger is a button so the entire
@@ -592,7 +598,7 @@ a:hover > .icon-arrow{transform:translate(1px,-1px);transition:transform .15s}
 /* Third column fits "View role", which needs 138px on one line. */
 .role-row { display: grid; grid-template-columns: 190px 1fr 150px; gap: var(--s-3); align-items: start; padding: var(--s-4) 0; border-bottom: 1px solid var(--line); }
 .role-dept { margin: 0; color: var(--blue); font-size: 11px; font-weight: 800; letter-spacing: .13em; line-height: 1.6; text-transform: uppercase; }
-.role-copy h3 { margin-bottom: 10px; font-size: 22px; }
+.role-copy h2 { margin-bottom: 10px; font-size: 22px; }
 .role-meta { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-bottom: 10px; color: var(--navy); font-size: 14px; font-weight: 700; }
 .role-copy p:last-child { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
 .careers-note { margin-top: var(--s-4); }
@@ -644,3 +650,12 @@ a.jd-back:hover > .icon-arrow { transform: rotate(180deg) translate(1px, 1px); }
   .jd-body-section { padding-top: var(--s-3); padding-bottom: var(--s-3); }
   .jd-cta { padding-top: var(--s-3); }
 }
+
+/* Promoted from h3 to h2 so each page's heading levels descend in order. The
+   base h2 rule is tuned for display headings (line-height 1.04, -.035em), which
+   these body-scale titles were never drawn at — h3's metrics are restated so
+   the promotion is semantic only and changes no pixels. */
+.conference-card h2, .pub-copy h2, .role-copy h2 { line-height: 1.2; letter-spacing: normal; }
+/* These carried no font-size of their own, so the h3 default has to be
+   restated as well as the metrics. */
+.burden-card h2 { font-size: 24px; line-height: 1.2; letter-spacing: normal; }

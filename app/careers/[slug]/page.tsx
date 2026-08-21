@@ -1,7 +1,67 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Arrow, Shell } from "../../components/SiteChrome";
-import { applyHref, findRole } from "../roles";
+import { JsonLd, contactEmail, pageMetadata, siteName, siteUrl } from "../../lib/seo";
+import { applyHref, findRole, roles, type Role } from "../roles";
+
+/** Prerenderable list of role URLs, and the set the sitemap walks. */
+export function generateStaticParams() {
+  return roles.map((role) => ({ slug: role.slug }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const role = findRole(slug);
+  if (!role) return { title: "Role not found" };
+  return pageMetadata({
+    // The full title runs past what search results show, so the listing title
+    // carries the location instead of the second half of the job title.
+    title: `${role.title.split(" / ")[0]} — ${role.location}`,
+    description: role.summary,
+    path: `/careers/${role.slug}`,
+  });
+}
+
+/**
+ * JobPosting markup, which is what makes a role eligible to appear in Google
+ * Jobs. `description` is required to be HTML, so the list sections are emitted
+ * as markup rather than as plain text.
+ */
+function jobPostingJsonLd(role: Role) {
+  const list = (items: string[]) => `<ul>${items.map((i) => `<li>${i}</li>`).join("")}</ul>`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    title: role.title,
+    datePosted: role.postedOn,
+    employmentType: "FULL_TIME",
+    description: [
+      role.overview.map((p) => `<p>${p}</p>`).join(""),
+      `<h3>Key responsibilities</h3>${list(role.responsibilities)}`,
+      `<h3>Qualifications and experience</h3>${list(role.qualifications)}`,
+    ].join(""),
+    hiringOrganization: {
+      "@type": "Organization",
+      name: siteName,
+      sameAs: siteUrl,
+      logo: `${siteUrl}/assets/aveta-biomics-logo.jpg`,
+    },
+    jobLocation: {
+      "@type": "Place",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Boston",
+        addressRegion: "MA",
+        addressCountry: "US",
+      },
+    },
+    jobLocationType: "TELECOMMUTE",
+    directApply: false,
+    applicantLocationRequirements: { "@type": "Country", name: "USA" },
+    url: `${siteUrl}/careers/${role.slug}`,
+    applicationContact: { "@type": "ContactPoint", email: contactEmail },
+  };
+}
 
 export default async function RolePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -16,7 +76,7 @@ export default async function RolePage({ params }: { params: Promise<{ slug: str
     ["TEAM", role.department],
   ] as const;
 
-  return <Shell active="/join-us"><main>
+  return <Shell active="/join-us"><JsonLd data={jobPostingJsonLd(role)} /><main>
     <section className="jd-hero"><div className="container policy-wrap">
       <Link className="text-link jd-back" href="/careers"><Arrow /> All open roles</Link>
       <h1 className="jd-title">{role.title}</h1>

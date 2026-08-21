@@ -1,4 +1,13 @@
 import { Arrow, Shell } from "./components/SiteChrome";
+import { pageMetadata } from "./lib/seo";
+
+export const metadata = pageMetadata({
+  title: "Aveta Biomics | Oral Immunotherapy for Hard-to-Treat Cancers",
+  description:
+    "Aveta Biomics develops APG-157, an oral immunotherapy designed to reprogram the tumor immune microenvironment in head and neck cancer and glioblastoma.",
+  path: "/",
+  absoluteTitle: true,
+});
 
 export default function Home() {
   return <Shell><main>
@@ -10,14 +19,14 @@ export default function Home() {
         <div className="actions"><a className="button" href="/science">Explore Our Science <Arrow /></a><a className="button-outline" href="mailto:betterhealth@avetabiomics.com?subject=Partnership inquiry">Partner with us <Arrow /></a></div>
       </div>
       <figure className="home-ecosystem-figure">
-        <img src="/assets/home-hero-reprogramming.png" alt="Aveta drugs reprogram an immune-suppressed tumor ecosystem so immune cells can enter" />
+        <img src="/assets/home-hero-reprogramming.png" width={1536} height={1024} alt="Aveta drugs reprogram an immune-suppressed tumor ecosystem so immune cells can enter" />
       </figure>
     </section>
 
     <section className="section approved-home-outcome"><div className="container">
       <div className="dual-head"><h2>Cold or hot, tumors can still evade immunity.<br /><span className="accent">Aveta Biomics drugs are designed for both.</span></h2><p className="lead">Aveta’s therapies are designed to activate immune-cold tumors and restore productive immunity in tumors that are already inflamed but functionally suppressed.</p></div>
       <figure className="home-outcome-figure">
-        <img src="/assets/home-cold-hot-reprogramming.png" alt="Aveta drugs reprogram immune-cold and immune-hot tumor ecosystems toward a functional antitumor immune response" />
+        <img src="/assets/home-cold-hot-reprogramming.png" width={1536} height={1024} alt="Aveta drugs reprogram immune-cold and immune-hot tumor ecosystems toward a functional antitumor immune response" />
       </figure>
     </div></section>
 

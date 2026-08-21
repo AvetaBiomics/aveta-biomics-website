@@ -1,5 +1,6 @@
 import { NewsList, type NewsItem } from "../components/NewsList";
 import { Arrow, Shell } from "../components/SiteChrome";
+import { pageMetadata } from "../lib/seo";
 
 const news: NewsItem[] = [
   {year:"2026",date:"JUNE 29, 2026",category:"STRATEGIC PARTNERSHIP",title:"Natera and Aveta Biomics Announce Strategic Partnership Supporting Global Phase 3 Registrational Trial of APG-157 in Head and Neck Cancer",summary:"The collaboration integrates serial tumor-informed ctDNA testing into Aveta’s global registrational Phase 3 program.",href:"https://www.businesswire.com/news/home/20260629746130/en/Natera-and-Aveta-Biomics-Announce-Strategic-Partnership-Supporting-Global-Phase-3-Registrational-Trial-of-APG-157-in-Head-and-Neck-Cancer"},
@@ -11,8 +12,20 @@ const news: NewsItem[] = [
   {year:"2024",date:"AUGUST 1, 2024",category:"CORPORATE",title:"Peter R. Dolan, Former Chairman and CEO of Bristol Myers Squibb, Joins the Board of Aveta Biomics",summary:"Experienced biopharmaceutical leader joins Aveta as the company advances APG-157.",href:"/assets/newsroom/peter-dolan-board-appointment.pdf"},
 ];
 
+export const metadata = pageMetadata({
+  title: "Newsroom",
+  description:
+    "Press releases and company news from Aveta Biomics, including regulatory milestones, clinical presentations and partnership announcements.",
+  path: "/newsroom",
+});
+
 export default function NewsroomPage(){
   return <Shell active="/newsroom"><main>
+    {/* The newsroom design opens straight into the release list with no page
+        title. /pipeline has the same situation and solves it with a
+        screen-reader-only h1; matched here so the page has the single top-level
+        heading crawlers and assistive tech expect, with no visual change. */}
+    <h1 className="sr-only">Newsroom</h1>
     <section className="section-sm"><div className="container">
       <NewsList items={news} />
     </div></section>

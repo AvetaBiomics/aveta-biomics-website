@@ -38,7 +38,7 @@ export default function PasswordGate() {
       <section className="review-gate__panel" aria-labelledby="review-title">
         <img
           className="review-gate__logo"
-          src="/assets/aveta-biomics-logo.jpg"
+          src="/assets/aveta-biomics-logo.jpg" width={2047} height={280}
           alt="Aveta Biomics"
         />
         <p className="review-gate__eyebrow">WEBSITE REVIEW</p>
