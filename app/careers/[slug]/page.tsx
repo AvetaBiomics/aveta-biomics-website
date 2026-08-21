@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ApplyModal } from "../../components/ApplyModal";
 import { Arrow, Shell } from "../../components/SiteChrome";
 import { JsonLd, contactEmail, pageMetadata, siteName, siteUrl } from "../../lib/seo";
 import { applyHref, findRole, roles, type Role } from "../roles";
@@ -81,7 +82,7 @@ export default async function RolePage({ params }: { params: Promise<{ slug: str
       <Link className="text-link jd-back" href="/careers"><Arrow /> All open roles</Link>
       <h1 className="jd-title">{role.title}</h1>
       <div className="jd-facts">{facts.map(([label, value])=><div className="jd-fact" key={label}><small>{label}</small><strong>{value}</strong></div>)}</div>
-      <div className="actions"><a className="button" href={apply}>Apply for this role <Arrow /></a></div>
+      <div className="actions"><ApplyModal slug={role.slug} title={role.title} fallbackHref={apply} /></div>
     </div></section>
 
     <section className="section-sm jd-body-section"><div className="container policy-wrap jd-body">
@@ -92,6 +93,6 @@ export default async function RolePage({ params }: { params: Promise<{ slug: str
 
     <section className="section-sm soft-bg jd-attributes-section"><div className="container policy-wrap"><div className="policy-card jd-attributes"><h3>Personal attributes</h3><p className="body-copy">{role.attributes}</p></div></div></section>
 
-    <section className="section-sm jd-cta"><div className="container"><div className="join-band navy-bg"><h2>Ready to move important work forward?</h2><div className="actions"><a className="button-outline" href={apply}>Apply for this role <Arrow /></a><Link className="button-outline" href="/careers">See all open roles <Arrow /></Link></div></div></div></section>
+    <section className="section-sm jd-cta"><div className="container"><div className="join-band navy-bg"><h2>Ready to move important work forward?</h2><div className="actions"><ApplyModal slug={role.slug} title={role.title} fallbackHref={apply} /><Link className="button-outline" href="/careers">See all open roles <Arrow /></Link></div></div></div></section>
   </main></Shell>;
 }

@@ -659,3 +659,41 @@ a.jd-back:hover > .icon-arrow { transform: rotate(180deg) translate(1px, 1px); }
 /* These carried no font-size of their own, so the h3 default has to be
    restated as well as the metrics. */
 .burden-card h2 { font-size: 24px; line-height: 1.2; letter-spacing: normal; }
+
+/* Application form modal.
+   Shares .modal-backdrop and .modal-close with the biography modal so the two
+   dialogs open the same way; only the panel and the form controls are new. */
+.apply-modal { position: relative; width: min(620px, 100%); max-height: 90vh; overflow: auto; padding: 42px; border-radius: 14px; background: #fff; box-shadow: 0 30px 90px rgba(0,0,0,.35); }
+.apply-modal h2 { margin-bottom: var(--s-3); font-size: clamp(28px, 3.4vw, 38px); line-height: 1.1; }
+.apply-form { display: grid; gap: var(--s-3); }
+.apply-field { display: grid; gap: 8px; }
+.apply-field > span { font-size: 14px; font-weight: 700; }
+/* The asterisk is decorative — the required state is carried by the input. */
+.apply-field > span i { color: var(--orange); font-style: normal; }
+.apply-field input[type="text"], .apply-field input[type="email"], .apply-field input[type="url"], .apply-field textarea {
+  width: 100%; padding: 13px 14px; border: 1px solid #aab8d2; border-radius: 4px; color: var(--ink); background: #fff; font: inherit; outline: none;
+}
+.apply-field textarea { resize: vertical; line-height: 1.6; }
+.apply-field input:focus, .apply-field textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(23,76,255,.12); }
+.apply-field input[aria-invalid="true"], .apply-field textarea[aria-invalid="true"] { border-color: #c93d22; }
+.apply-field em { color: #c93d22; font-size: 13px; font-style: normal; }
+/* The native file input is replaced by the button + filename pair beside it,
+   but stays in the DOM so the control keeps its keyboard and form behaviour. */
+.apply-file { position: relative; display: flex; align-items: center; gap: 14px; cursor: pointer; }
+.apply-file input[type="file"] { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.apply-file-button { flex: 0 0 auto; padding: 11px 18px; border: 1.5px solid var(--blue); border-radius: 4px; color: var(--navy); font-size: 14px; font-weight: 700; }
+.apply-file input:focus-visible + .apply-file-button { box-shadow: 0 0 0 3px rgba(23,76,255,.12); }
+.apply-file-name { color: var(--muted); font-size: 14px; overflow-wrap: anywhere; }
+.apply-error { margin: 0; padding: 13px 16px; border: 1px solid #c93d22; border-radius: 4px; color: #c93d22; font-size: 14px; line-height: 1.5; }
+.apply-actions { display: flex; align-items: center; gap: var(--s-3); flex-wrap: wrap; margin-top: var(--s-1); }
+.apply-actions .button:disabled { opacity: .65; cursor: wait; }
+.apply-note { margin: 0; color: var(--muted); font-size: 13px; }
+.apply-sent { text-align: center; padding: var(--s-4) 0; }
+.apply-sent .eyebrow { color: var(--green); }
+.apply-sent .body-copy { margin-bottom: var(--s-4); }
+
+@media (max-width: 560px) {
+  .apply-modal { padding: 30px 22px; border-radius: 10px; }
+  .apply-file { flex-wrap: wrap; gap: 10px; }
+  .apply-actions .button { width: 100%; }
+}
