@@ -14,6 +14,13 @@ export type Role = {
   employment: string;
   /** ISO date the role was published. Feeds JobPosting.datePosted. */
   postedOn: string;
+  /**
+   * Where applications for this role are sent. Each opening has its own
+   * hiring manager, so this is per-role rather than a single site-wide
+   * address. Never rendered in the page — the API route reads it server-side
+   * from the slug, so the address is not exposed to scrapers.
+   */
+  hiringManagerEmail: string;
   /** One-line summary for the listing row. */
   summary: string;
   /** Position summary, one paragraph per entry. */
@@ -32,6 +39,7 @@ export const roles: Role[] = [
     location: "Boston, MA",
     employment: "Hybrid · Full time",
     postedOn: "2026-08-21",
+    hiringManagerEmail: "kzikaras@avetabiomics.com",
     summary:
       "Hands-on Sponsor operational lead for the global Phase 3 AVTA30-01 head and neck cancer study, the glioblastoma program and other emerging clinical studies.",
     overview: [
@@ -65,7 +73,11 @@ export const roles: Role[] = [
 
 export const careersEmail = "betterhealth@avetabiomics.com";
 
-/** mailto for a specific role. Subjects are encoded — they contain spaces and commas. */
+/**
+ * mailto fallback, used when the application form cannot be reached — a failed
+ * send, or JavaScript unavailable. Subjects are encoded; they contain spaces
+ * and commas.
+ */
 export function applyHref(role: Role) {
   return `mailto:${careersEmail}?subject=${encodeURIComponent(`Application: ${role.title}`)}`;
 }

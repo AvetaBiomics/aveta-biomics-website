@@ -14,3 +14,4 @@ CLAUDE.md
 
 # Internal design review notes; not part of the deployable site.
 design-review/
+.vercel
