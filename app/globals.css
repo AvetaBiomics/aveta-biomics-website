@@ -579,3 +579,68 @@ a:hover > .icon-arrow{transform:translate(1px,-1px);transition:transform .15s}
 .cold-input { top: 3%; left: 0; width: 20%; height: 35%; padding: 5.5% .6% .6%; }
 .hot-input { top: 51%; left: 0; width: 20%; height: 38%; padding: 5.5% .6% .6%; }
 
+
+/* Careers listing and job descriptions.
+   The listing row mirrors .pub-row's three-column rhythm (meta / copy /
+   action) so /careers reads as the same kind of index as /publications. */
+/* The hero reuses .join-approved-hero / .join-approved-copy. Only the headline
+   and measure differ: "Open roles." is short enough for the site's full h1
+   scale, and the lead runs to the four lines the design shows. */
+.careers-hero .join-approved-copy h1 { max-width: none; font-size: clamp(48px, 6vw, 82px); line-height: .99; letter-spacing: -.045em; }
+.careers-hero .join-approved-copy .lead { max-width: 480px; }
+.role-list { border-top: 1px solid var(--line); }
+/* Third column fits "View role", which needs 138px on one line. */
+.role-row { display: grid; grid-template-columns: 190px 1fr 150px; gap: var(--s-3); align-items: start; padding: var(--s-4) 0; border-bottom: 1px solid var(--line); }
+.role-dept { margin: 0; color: var(--blue); font-size: 11px; font-weight: 800; letter-spacing: .13em; line-height: 1.6; text-transform: uppercase; }
+.role-copy h3 { margin-bottom: 10px; font-size: 22px; }
+.role-meta { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-bottom: 10px; color: var(--navy); font-size: 14px; font-weight: 700; }
+.role-copy p:last-child { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
+.careers-note { margin-top: var(--s-4); }
+
+.jd-hero { padding: var(--hero-y) 0 var(--s-6); }
+/* The shared hover rule translates .icon-arrow, which would drop the rotation
+   that turns this forward arrow into a back arrow. Restated with both. */
+.jd-back .icon-arrow { transform: rotate(180deg); }
+a.jd-back:hover > .icon-arrow { transform: rotate(180deg) translate(1px, 1px); }
+.jd-back { display: inline-flex; align-items: center; gap: 8px; margin-bottom: var(--s-4); font-size: 14px; }
+.jd-title { font-size: clamp(38px, 4.2vw, 58px); line-height: 1.06; }
+.jd-facts { display: flex; flex-wrap: wrap; gap: var(--s-3) var(--s-6); margin-top: var(--s-4); padding-top: var(--s-3); border-top: 1px solid var(--line); }
+.jd-fact small { display: block; margin-bottom: 6px; color: var(--blue); font-size: 11px; font-weight: 800; letter-spacing: .12em; }
+.jd-fact strong { font-size: 16px; }
+.jd-section + .jd-section { margin-top: var(--s-7); }
+.jd-body h2 { margin-bottom: var(--s-3); font-size: clamp(30px, 3vw, 38px); }
+.jd-body .body-copy + .body-copy { margin-top: var(--s-2); }
+.jd-list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--s-2); }
+.jd-list li { position: relative; padding-left: 30px; color: var(--muted); font-size: 17px; line-height: 1.7; }
+.jd-list li::before { content: ""; position: absolute; left: 7px; top: 11px; width: 7px; height: 7px; border-radius: 50%; background: var(--blue); }
+/* .criteria-list was written for the short one-line items on /expanded-access.
+   These entries run to several lines, so they take the body measure — and the
+   check sits on the first line's centre rather than above it. */
+.jd-body .criteria-list { gap: var(--s-2); }
+.jd-body .criteria-list li { color: var(--muted); font-size: 17px; line-height: 1.7; }
+.jd-body .criteria-list li::before { top: 4px; }
+.jd-attributes h3 { margin-bottom: var(--s-2); }
+.jd-attributes .body-copy { margin: 0; }
+
+/* On /join-us the band follows body copy inside a shared section, so it carries
+   its own top margin. Here it is the only child of its section and that margin
+   has nothing to separate it from — it just deepens the section stack. */
+.careers-cta .join-band, .jd-cta .join-band { margin-top: 0; }
+
+@media (max-width: 860px) {
+  .role-row { grid-template-columns: 1fr; gap: var(--s-2); }
+  .role-row .button-outline { justify-self: start; width: auto; }
+  .jd-facts { gap: var(--s-3) var(--s-4); }
+
+  /* Stacked, every break on these two pages lands on something quiet — a
+     hairline rule, a plain paragraph, a tinted card — rather than on a section
+     headline. The shared 48+48 section stack then reads as dead space instead
+     of as a change of section, so these breaks are pulled in. Measured at
+     390px: 121px and 126px before, 89px and 64px after. Pages that do open
+     each section with a headline keep the standard rhythm. */
+  .careers-roles { padding-top: var(--s-2); padding-bottom: var(--s-5); }
+  .careers-cta { padding-top: var(--s-3); }
+  .jd-hero { padding-bottom: var(--s-4); }
+  .jd-body-section { padding-top: var(--s-3); padding-bottom: var(--s-3); }
+  .jd-cta { padding-top: var(--s-3); }
+}
