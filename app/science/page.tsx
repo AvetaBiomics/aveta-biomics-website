@@ -1,4 +1,12 @@
 import { Arrow, Shell } from "../components/SiteChrome";
+import { pageMetadata } from "../lib/seo";
+
+export const metadata = pageMetadata({
+  title: "Our Science",
+  description:
+    "How APG-157 reprograms immune-cold tumors: mechanism of action, the tumor immune microenvironment and the translational evidence behind Aveta's platform.",
+  path: "/science",
+});
 
 export default function SciencePage(){return <Shell active="/science"><main>
   <section className="science-approved-hero container"><div><p className="eyebrow">OUR SCIENCE</p><h1>Designed to speak<br />the immune system’s<br /><span className="accent">own language.</span></h1><p className="body-copy">APG-157 is designed to <strong>engage immune-regulatory pathways that are also influenced by endogenous metabolites,</strong> small molecules naturally produced by the body that help regulate immune activity and maintain tissue balance.</p><p className="body-copy">By acting upstream within the tumor immune microenvironment, APG-157 is designed to reduce immune suppression and restore coordinated antitumor immunity.</p><div className="actions"><a className="button" href="#mechanism">Explore the Mechanism <Arrow /></a><a className="button-outline" href="/publications">View Publications <Arrow /></a></div></div><aside><p className="eyebrow">THE DESIGN PRINCIPLE</p><h2>Regulate immunity.<br />Do not simply<br />stimulate it.</h2><p className="lead">Use the body’s own regulatory logic for the immune system as a therapeutic starting point.</p></aside></section>
@@ -7,7 +15,7 @@ export default function SciencePage(){return <Shell active="/science"><main>
 
   <section className="section-sm"><div className="container"><div className="dual-head"><h2>A therapeutic design principle rooted in human biology.</h2></div><div className="foundation-grid"><article><b>01</b><h3>ENDOGENOUS<br />IMMUNE REGULATION</h3><p>Endogenous metabolites help tissues calibrate immune activity—when to activate, when to restrain and how to maintain balance.</p></article><article><b>02</b><h3>UPSTREAM<br />CONTROL</h3><p>APG-157 is designed to act within conserved regulatory pathways upstream of immune checkpoints.</p></article><article><b>03</b><h3>COORDINATED<br />IMMUNE FUNCTION</h3><p>The objective is to change the conditions that determine the emergence and persistence of productive antitumor immunity.</p></article></div><div className="science-statement">Change the immune state of the tumor and not simply one signal within it.</div></div></section>
 
-  <section id="mechanism" className="section-sm"><div className="container"><div className="dual-head"><h2>From immunosuppressive to immune-activated.</h2></div><img className="approved-mechanism" src="/assets/science-approved-mechanism-v2.png" alt="APG-157 remodels an immunosuppressive tumor immune microenvironment into an immune-activated state" /></div></section>
+  <section id="mechanism" className="section-sm"><div className="container"><div className="dual-head"><h2>From immunosuppressive to immune-activated.</h2></div><img className="approved-mechanism" src="/assets/science-approved-mechanism-v2.png" width={1978} height={795} alt="APG-157 remodels an immunosuppressive tumor immune microenvironment into an immune-activated state" /></div></section>
 
   <section className="section-sm"><div className="container"><div className="dual-head"><h2>Upstream signaling. Coordinated immune change.</h2></div><div className="mechanism-grid"><article><h3>REDUCE TUMOR-PROMOTING INFLAMMATION</h3><p>APG-157 modulates NF-κB and STAT3 signaling, pathways associated with tumor-promoting inflammation and immune suppression.</p></article><article><h3>REPOLARIZE MACROPHAGES</h3><p>APG-157 is designed to shift tumor-associated macrophages from an immunosuppressive M2-like phenotype toward the tumoricidal M1 state.</p></article><article><h3>STRENGTHEN EFFECTOR IMMUNITY</h3><p>Macrophage repolarization is designed to support greater CD8+ T-cell and NK-cell activity within the tumor microenvironment.</p></article></div><p className="mechanism-summary">Together, these effects are designed to move the tumor immune microenvironment<br />toward a more productive antitumor state.</p></div></section>
 

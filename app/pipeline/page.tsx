@@ -1,10 +1,18 @@
 import { ExternalArrow, Shell } from "../components/SiteChrome";
+import { pageMetadata } from "../lib/seo";
 
 const trials = {
   hnc: "https://clinicaltrials.gov/study/NCT07667296?term=APG-157&viewType=Card&rank=3",
   glioma: "https://clinicaltrials.gov/study/NCT06011109?term=APG-157&viewType=Card&rank=1",
   dysplasia: "https://clinicaltrials.gov/study/NCT05865028?term=APG-157&viewType=Card&rank=4",
 };
+
+export const metadata = pageMetadata({
+  title: "Clinical Pipeline",
+  description:
+    "Aveta's development programs, including the global Phase 3 AVTA-30-01 study of APG-157 in head and neck cancer and the glioblastoma program.",
+  path: "/pipeline",
+});
 
 export default function PipelinePage() {
   return (
@@ -17,7 +25,7 @@ export default function PipelinePage() {
         Below 860px, swap to a 1.685:1 crop of the same photo so most of the
         scene stays visible. */}
     <source media="(max-width: 860px)" srcSet="/assets/pipeline-patient-doctor-mobile.jpg" />
-    <img src="/assets/pipeline-patient-doctor.jpg" alt="A patient speaking with his physician" />
+    <img src="/assets/pipeline-patient-doctor.jpg" width={2400} height={803} alt="A patient speaking with his physician" />
   </picture></section>
         <section className="pipeline-intro"><div className="container"><p className="lead">Aveta is advancing APG-157 across clinical and preclinical programs in cancers where reprogramming the tumor immune microenvironment may offer a new therapeutic approach.</p></div></section>
 
@@ -49,9 +57,9 @@ export default function PipelinePage() {
         </div></section>
 
         <section className="section"><div className="container burden-grid">
-          <article className="burden-card"><h3>Head &amp; Neck Cancer</h3><p className="big">950,000</p><p>new diagnoses worldwide each year</p><hr /><p className="big">400,000</p><p>deaths worldwide each year</p></article>
-          <article className="burden-card"><h3>High Grade Glioma</h3><p className="big" style={{fontSize:38}}>300,000–335,000</p><p>new diagnoses worldwide each year</p><hr /><p className="big" style={{fontSize:38}}>220,000–250,000</p><p>deaths worldwide each year</p></article>
-          <article className="burden-card"><h3>Oral Dysplasia</h3><p className="lead" style={{marginTop:46,color:'var(--navy)'}}>An opportunity to intervene before invasive cancer develops.</p><hr /><p className="lead" style={{color:'var(--navy)'}}>Oral dysplasia is a precancerous condition that can progress to invasive oral cancer.</p></article>
+          <article className="burden-card"><h2>Head &amp; Neck Cancer</h2><p className="big">950,000</p><p>new diagnoses worldwide each year</p><hr /><p className="big">400,000</p><p>deaths worldwide each year</p></article>
+          <article className="burden-card"><h2>High Grade Glioma</h2><p className="big" style={{fontSize:38}}>300,000–335,000</p><p>new diagnoses worldwide each year</p><hr /><p className="big" style={{fontSize:38}}>220,000–250,000</p><p>deaths worldwide each year</p></article>
+          <article className="burden-card"><h2>Oral Dysplasia</h2><p className="lead" style={{marginTop:46,color:'var(--navy)'}}>An opportunity to intervene before invasive cancer develops.</p><hr /><p className="lead" style={{color:'var(--navy)'}}>Oral dysplasia is a precancerous condition that can progress to invasive oral cancer.</p></article>
         </div></section>
       </main>
     </Shell>

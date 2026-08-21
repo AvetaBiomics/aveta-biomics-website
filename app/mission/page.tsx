@@ -1,4 +1,12 @@
 import { Shell } from "../components/SiteChrome";
+import { pageMetadata } from "../lib/seo";
+
+export const metadata = pageMetadata({
+  title: "Our Mission, Our Heroes",
+  description:
+    "Why Aveta Biomics exists: extending and improving the lives of patients with hard-to-treat cancers, and the people who make that work possible.",
+  path: "/mission",
+});
 
 export default function MissionPage() {
   return <Shell active="/mission"><main>

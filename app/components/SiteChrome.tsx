@@ -19,7 +19,7 @@ export function Header({ active }: { active?: string }) {
     <header className="site-header">
       <div className="header-inner">
         <Link className="brand" href="/" aria-label="Aveta Biomics home">
-          <img src="/assets/aveta-biomics-logo.jpg" alt="Aveta Biomics" />
+          <img src="/assets/aveta-biomics-logo.jpg" width={2047} height={280} alt="Aveta Biomics" />
         </Link>
         <button
           className="menu-toggle"
@@ -53,7 +53,7 @@ export function Footer({ active }: { active?: string }) {
       <div className="footer-inner">
         <div className="footer-brand">
           <Link className="brand" href="/" aria-label="Aveta Biomics home">
-            <img src="/assets/aveta-biomics-logo.jpg" alt="Aveta Biomics" />
+            <img src="/assets/aveta-biomics-logo.jpg" width={2047} height={280} alt="Aveta Biomics" />
           </Link>
           <p>110 Great Road, Suite 302<br />Bedford, MA 01730</p>
         </div>
