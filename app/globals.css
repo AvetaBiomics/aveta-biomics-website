@@ -333,12 +333,15 @@ a:hover > .icon-arrow{transform:translate(1px,-1px);transition:transform .15s}
    split the container rather than the viewport: the copy starts level with the
    logo and the figure finishes level with the Join Us button, which it
    previously overshot by 28px at 1200 and 280px at 1920. Padding both sides
-   (rather than only the right) keeps each column the same width it had before,
-   so the headline and eyebrow wrap exactly as they did. */
-.approved-home-hero{min-height:525px;display:grid;grid-template-columns:50% 50%;align-items:center;border-bottom:1px solid var(--line);overflow:hidden;padding-inline:max(var(--gutter),calc((100vw - var(--page-max))/2))}/* No left padding: the section above now supplies the offset to the container. */
+   (rather than only the right) keeps the container alignment on both edges.
+   The columns are split 44/56 rather than evenly: the figure's artwork is a
+   fixed 3:2, so its rendered height is set entirely by the column width. */
+.approved-home-hero{min-height:560px;display:grid;grid-template-columns:44% 56%;align-items:center;border-bottom:1px solid var(--line);overflow:hidden;padding-inline:max(var(--gutter),calc((100vw - var(--page-max))/2))}/* No left padding: the section above now supplies the offset to the container. */
 .approved-home-hero .home-copy{padding:var(--hero-y) var(--s-6) var(--hero-y) 0}.approved-home-hero h1{font-size:clamp(50px,5vw,72px);max-width:720px}.approved-home-outcome .dual-head{max-width:950px}
 
-.home-ecosystem-figure{width:min(100%,780px);margin:0;justify-self:center}.home-ecosystem-figure>img{width:100%;height:auto}
+/* Fills its column, so the 3:2 artwork's height follows the column split above
+   and its right edge stays level with the container. */
+.home-ecosystem-figure{width:min(100%,780px);margin:0;justify-self:end}.home-ecosystem-figure>img{width:100%;height:auto}
 
 .home-outcome-figure{width:100%;max-width:none;margin:8px auto 0}.home-outcome-figure>img{display:block;width:100%;height:auto}
 

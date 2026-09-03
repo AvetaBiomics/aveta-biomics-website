@@ -19,7 +19,7 @@ export default function Home() {
         <div className="actions"><a className="button" href="/science">Explore Our Science <Arrow /></a><a className="button-outline" href="mailto:betterhealth@avetabiomics.com?subject=Partnership inquiry">Partner with us <Arrow /></a></div>
       </div>
       <figure className="home-ecosystem-figure">
-        <img src="/assets/home-hero-reprogramming.png" width={1536} height={1024} alt="Aveta drugs reprogram an immune-suppressed tumor ecosystem so immune cells can enter" />
+        <img src="/assets/home-hero-reprogramming-v3.png" width={1536} height={1024} alt="Aveta drugs reprogram an immune-suppressed tumor ecosystem so immune cells can enter" />
       </figure>
     </section>
 
