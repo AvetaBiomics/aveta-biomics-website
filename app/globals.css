@@ -191,7 +191,7 @@ h3 { font-size: 24px; line-height: 1.2; }
 .person-card:hover { transform:translateY(-4px); box-shadow:0 18px 40px rgba(20,40,90,.12); }
 .person-card img { width:100%; aspect-ratio:1.15; object-fit:cover; object-position:top; }
 .person-copy { display:grid; gap:7px; padding:23px; }.person-copy strong{font-size:21px}.person-copy span{color:var(--muted)}.person-copy small{color:var(--blue);font-weight:700;margin-top:8px}
-.modal-backdrop{position:fixed;inset:0;background:rgba(2,10,45,.72);z-index:100;display:grid;place-items:center;padding:24px}.bio-modal{position:relative;max-width:900px;max-height:90vh;overflow:auto;background:white;border-radius:18px;padding:42px;display:grid;grid-template-columns:260px 1fr;gap:38px;box-shadow:0 30px 90px rgba(0,0,0,.35)}.bio-modal img{width:100%;border-radius:50%}.bio-modal p:not(.eyebrow):not(.role){color:var(--muted);line-height:1.7}.bio-modal h2{font-size:38px;margin-bottom:6px}.bio-modal .role{font-weight:700;color:var(--blue)}.modal-close{position:absolute;top:14px;right:18px;border:0;background:none;font-size:34px;color:var(--navy);cursor:pointer}
+.modal-backdrop{position:fixed;inset:0;background:rgba(2,10,45,.72);z-index:100;display:grid;place-items:center;padding:24px}.modal-close{position:absolute;top:14px;right:18px;border:0;background:none;font-size:34px;color:var(--navy);cursor:pointer}
 
 /* Science */
 .science-hero { display:grid;grid-template-columns:.85fr 1.15fr;gap:40px;align-items:center;padding:70px 0 55px}.science-hero h1{font-size:clamp(50px,5vw,72px)}.science-hero figure{margin:0}.science-hero img{width:100%;border-radius:18px}.goal-bar{display:grid;grid-template-columns:190px 1fr;gap:32px;align-items:center;padding:28px 36px;border-radius:14px;background:#f3f1ff}.goal-bar strong{font-size:26px;color:#3518af;border-right:1px solid #b9b3dc}.science-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.science-step{padding:30px;border:1px solid var(--line);border-radius:14px;position:relative}.step-number{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;color:#fff;background:var(--blue);font-weight:800;font-size:22px}.science-step:nth-child(2) .step-number{background:var(--orange)}.science-step:nth-child(3) .step-number{background:var(--green)}.science-step p{color:var(--muted);line-height:1.65}.pathway{display:grid;gap:14px;margin-top:22px}.pathway span{padding:13px;border-radius:8px;background:var(--soft);text-align:center;font-weight:700}.pathway i{text-align:center;color:var(--blue);font-style:normal;font-size:24px}
@@ -313,13 +313,13 @@ a:hover > .icon-arrow{transform:translate(1px,-1px);transition:transform .15s}
    overlaid the copy on the photo using a fixed 360px offset against a photo
    sized at 60% of a content-driven height; the two scaled independently, so
    the heading landed on the image and lost contrast. */
-.photo-hero{grid-template-columns:1fr;min-height:0;align-items:stretch}.photo-hero .photo{position:static;width:100%;height:280px;object-fit:cover}.photo-hero::after{content:none}.photo-hero-copy{padding:var(--s-7) var(--gutter)}.facts-grid,.card-grid,.burden-grid,.policy-mini{grid-template-columns:1fr}.fact{border-right:0;border-bottom:1px solid var(--line)}.fact:last-child{border-bottom:0}.logic-grid,.science-steps,.steps,.pathway-grid,.mindset-grid,.contribute-grid{grid-template-columns:1fr}.logic-item,.step,.mindset-item,.contribute-item{border-right:0;border-bottom:1px solid var(--line)}.tumor-flow{grid-template-columns:1fr}.flow-arrow{transform:rotate(90deg)}.pipeline-table{overflow-x:auto}.pipeline-head,.pipeline-row{min-width:850px}.conference-grid{grid-template-columns:1fr}.pub-row,.news-row{grid-template-columns:1fr}.media-band,.contact-band,.final-cta{align-items:flex-start;flex-direction:column}.goal-bar{grid-template-columns:1fr}.goal-bar strong{border-right:0;border-bottom:1px solid #b9b3dc;padding-bottom:18px}.footer-inner{grid-template-columns:1fr}.footer-nav{grid-template-columns:repeat(2,1fr)}.copyright{text-align:left}.bio-modal{grid-template-columns:1fr}.bio-modal img{width:180px}.team-row{flex-wrap:wrap}
+.photo-hero{grid-template-columns:1fr;min-height:0;align-items:stretch}.photo-hero .photo{position:static;width:100%;height:280px;object-fit:cover}.photo-hero::after{content:none}.photo-hero-copy{padding:var(--s-7) var(--gutter)}.facts-grid,.card-grid,.burden-grid,.policy-mini{grid-template-columns:1fr}.fact{border-right:0;border-bottom:1px solid var(--line)}.fact:last-child{border-bottom:0}.logic-grid,.science-steps,.steps,.pathway-grid,.mindset-grid,.contribute-grid{grid-template-columns:1fr}.logic-item,.step,.mindset-item,.contribute-item{border-right:0;border-bottom:1px solid var(--line)}.tumor-flow{grid-template-columns:1fr}.flow-arrow{transform:rotate(90deg)}.pipeline-table{overflow-x:auto}.pipeline-head,.pipeline-row{min-width:850px}.conference-grid{grid-template-columns:1fr}.pub-row,.news-row{grid-template-columns:1fr}.media-band,.contact-band,.final-cta{align-items:flex-start;flex-direction:column}.goal-bar{grid-template-columns:1fr}.goal-bar strong{border-right:0;border-bottom:1px solid #b9b3dc;padding-bottom:18px}.footer-inner{grid-template-columns:1fr}.footer-nav{grid-template-columns:repeat(2,1fr)}.copyright{text-align:left}.team-row{flex-wrap:wrap}
 }
 @media (max-width: 560px){
   :root{--gutter:20px;--section-y:var(--s-8);--section-y-sm:var(--s-6)}
   h1{font-size:46px}h2{font-size:34px}.home-hero-copy h1{font-size:52px}.orbit{width:400px;height:400px}.orbit.two{width:310px;height:310px}.ecosystem-wrap{min-height:440px}.tumor-core{transform:scale(.78)}.ecosystem-label{font-size:10px}.tumor-state{grid-template-columns:90px 1fr}.cell-cluster{width:88px}.pathway-card{padding:28px}.conference-card{padding:22px}.actions{flex-direction:column;align-items:stretch}.button,.button-outline,.arrow-link{width:100%}/* Stack: side by side, the longer heading is squeezed to ~180px and wraps to
    three lines next to the year filter. */
-.news-toolbar{flex-direction:column;align-items:flex-start;gap:20px}.bio-modal{padding:28px 22px}
+.news-toolbar{flex-direction:column;align-items:flex-start;gap:20px}
 }
 
 .centered-copy{max-width:900px;text-align:center}.centered-copy .lead{margin-inline:auto}.center-actions{justify-content:center}.soft-bg{background:var(--soft)}
@@ -419,9 +419,6 @@ a:hover > .icon-arrow{transform:translate(1px,-1px);transition:transform .15s}
 .people-portraits .person-copy span { font-size: 13px; line-height: 1.4; }
 .people-portraits .person-copy small { font-size: 12px; }
 .person-placeholder { display: grid; place-items: center; background: #edf0f5; color: #aab0bc; font-size: 62px; }
-.person-placeholder.large { width: 260px; aspect-ratio: 4/5; border-radius: 8px; }
-.bio-modal img { border-radius: 8px; aspect-ratio: 4/5; object-fit: cover; object-position: center 20%; }
-.bio-modal img[src*="andrew-sikora"] { object-position: center 0%; }
 
 .mission-hero { padding: var(--hero-y) 0; background: linear-gradient(135deg, #f4f7ff, #eef3ff); }
 .mission-hero h1 { max-width: none; color: var(--navy); white-space: nowrap; font-size: clamp(54px,5.25vw,76px); }
@@ -664,8 +661,8 @@ a.jd-back:hover > .icon-arrow { transform: rotate(180deg) translate(1px, 1px); }
 .burden-card h2 { font-size: 24px; line-height: 1.2; letter-spacing: normal; }
 
 /* Application form modal.
-   Shares .modal-backdrop and .modal-close with the biography modal so the two
-   dialogs open the same way; only the panel and the form controls are new. */
+   Shares .modal-backdrop and .modal-close with the rules above; only the panel
+   and the form controls are new. */
 .apply-modal { position: relative; width: min(620px, 100%); max-height: 90vh; overflow: auto; padding: 42px; border-radius: 14px; background: #fff; box-shadow: 0 30px 90px rgba(0,0,0,.35); }
 .apply-modal h2 { margin-bottom: var(--s-3); font-size: clamp(28px, 3.4vw, 38px); line-height: 1.1; }
 .apply-form { display: grid; gap: var(--s-3); }
@@ -699,4 +696,50 @@ a.jd-back:hover > .icon-arrow { transform: rotate(180deg) translate(1px, 1px); }
   .apply-modal { padding: 30px 22px; border-radius: 10px; }
   .apply-file { flex-wrap: wrap; gap: 10px; }
   .apply-actions .button { width: 100%; }
+}
+
+/* Biography page (/about/<name>).
+   Replaces the modal that used to open over /about. It keeps that layout — the
+   portrait beside the name and title, the biography beneath — drawn at the page
+   measure the role pages use, so the two detail pages read as a pair. */
+.bio-hero { padding: var(--hero-y) 0 0; }
+.bio-head { display: grid; grid-template-columns: 260px 1fr; gap: var(--s-6); align-items: start; }
+.bio-portrait { width: 100%; border-radius: 8px; aspect-ratio: 4/5; object-fit: cover; object-position: center 20%; }
+/* Framed tighter than the other headshots; matches the grid card on /about. */
+.bio-portrait[src*="andrew-sikora"] { object-position: center 0%; }
+.bio-identity .eyebrow { margin-bottom: var(--s-2); }
+.bio-name { font-size: clamp(38px, 4.2vw, 58px); line-height: 1.06; margin: 0; }
+.bio-role { margin: 14px 0 0; color: var(--blue); font-size: 19px; font-weight: 700; }
+.bio-also { margin: 10px 0 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
+/* The hero carries no bottom padding of its own: the rule below is what
+   separates it from the biography, at the section's own top padding. */
+.bio-body { border-top: 1px solid var(--line); padding-top: var(--s-6); }
+.bio-body .body-copy + .body-copy { margin-top: var(--s-3); }
+/* The back links on the biography pages point at these sections by anchor.
+   The header is sticky, so without a scroll margin the section's eyebrow lands
+   underneath it and the visitor returns to what looks like the wrong place. */
+.people-section { scroll-margin-top: calc(var(--header-h) + var(--s-3)); }
+
+.bio-back-bottom { margin-top: var(--s-6); }
+/* Both back links point the same way. As with .jd-back, the rotation has to be
+   restated on hover or the shared .icon-arrow translate drops it. */
+.bio-hero .jd-back .icon-arrow, .bio-back-bottom .icon-arrow { transform: rotate(180deg); }
+a.bio-back-bottom:hover > .icon-arrow { transform: rotate(180deg) translate(1px, 1px); }
+
+/* Tablet keeps the portrait beside the name — there is room for both — on a
+   narrower column. It only stacks at 560, where the name would otherwise be
+   left with about 280px and break across three lines. */
+@media (max-width: 860px) {
+  .bio-head { grid-template-columns: 200px 1fr; gap: var(--s-4); }
+  .bio-body { padding-top: var(--s-4); }
+  .bio-body-section { padding-bottom: var(--s-5); }
+}
+@media (max-width: 560px) {
+  .bio-head { grid-template-columns: 1fr; }
+  /* Stacked, the portrait sizes itself rather than filling the screen width. */
+  .bio-portrait { width: 200px; }
+  .bio-role { font-size: 17px; }
+  /* .button-outline goes full width at this size; the arrow needs the label
+     beside it rather than centred with it in the middle of an empty button. */
+  .bio-back-bottom { justify-content: flex-start; }
 }

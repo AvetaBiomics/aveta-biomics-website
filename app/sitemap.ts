@@ -1,11 +1,12 @@
 import type { MetadataRoute } from "next";
+import { personSlugs } from "./about/people";
 import { roles } from "./careers/roles";
 import { siteUrl } from "./lib/seo";
 
 /**
- * Static routes, most important first. Role pages are appended from the same
- * data the pages render from, so a new posting reaches the sitemap without a
- * second edit here.
+ * Static routes, most important first. Role and biography pages are appended
+ * from the same data the pages render from, so a new posting or a new person
+ * reaches the sitemap without a second edit here.
  */
 const pages: Array<[path: string, priority: number, changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]]> = [
   ["/", 1.0, "monthly"],
@@ -28,6 +29,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency,
       priority,
+    })),
+    ...personSlugs.map((slug) => ({
+      url: `${siteUrl}/about/${slug}`,
+      lastModified,
+      changeFrequency: "yearly" as const,
+      priority: 0.5,
     })),
     ...roles.map((role) => ({
       url: `${siteUrl}/careers/${role.slug}`,
