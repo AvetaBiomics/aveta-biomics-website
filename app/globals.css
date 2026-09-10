@@ -50,10 +50,14 @@
 /* The column, with main taking the slack, is what keeps the footer on the
    bottom edge of a page too short to fill the window — a brief biography on a
    tall display, say, which otherwise ended mid-screen with bare page below it.
-   dvh where it is supported, so mobile browsers measure the viewport actually
-   visible rather than the one behind the address bar. */
-body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; background: #fff; color: var(--ink); font-family: "Inter", Arial, Helvetica, sans-serif; }
-@supports (min-height: 100dvh) { body { min-height: 100dvh; } }
+
+   The height is a percentage of html rather than 100vh on purpose. On a phone
+   100vh is the *large* viewport, the full height behind the address bar, so a
+   short page laid out to it stands taller than what is actually on screen and
+   scrolls past its own footer into blank space. A percentage resolves against
+   the visible viewport on every browser, with no dvh support needed. */
+html { height: 100%; }
+body { margin: 0; min-height: 100%; display: flex; flex-direction: column; background: #fff; color: var(--ink); font-family: "Inter", Arial, Helvetica, sans-serif; }
 body > main { flex: 1 0 auto; }
 a { color: inherit; text-decoration: none; }
 button, input, textarea { font: inherit; }
