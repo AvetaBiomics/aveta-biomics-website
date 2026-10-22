@@ -23,7 +23,15 @@ const ALL = "all";
  * Only this list is a client component — the page around it stays server
  * rendered.
  */
-export function NewsList({ items }: { items: NewsItem[] }) {
+export function NewsList({
+  items,
+  heading = "Press Releases",
+  linkLabel = "Read Release",
+}: {
+  items: NewsItem[];
+  heading?: string;
+  linkLabel?: string;
+}) {
   const years = useMemo(
     () => [...new Set(items.map((i) => i.year))].sort((a, b) => b.localeCompare(a)),
     [items],
@@ -34,9 +42,9 @@ export function NewsList({ items }: { items: NewsItem[] }) {
   return (
     <>
       <div className="news-toolbar">
-        <div><h2>Press release/Aveta in news</h2></div>
+        <div><h2>{heading}</h2></div>
         <YearSelect
-          label="Filter press releases by year"
+          label={`Filter ${heading.toLowerCase()} by year`}
           value={year}
           onChange={setYear}
           options={[{ value: ALL, label: "All years" }, ...years.map((y) => ({ value: y, label: y }))]}
@@ -57,7 +65,7 @@ export function NewsList({ items }: { items: NewsItem[] }) {
                   <p>{item.summary}</p>
                 </div>
                 <a className="text-link" href={item.href} target="_blank" rel="noreferrer">
-                  Read Release <Arrow />
+                  {linkLabel} <Arrow />
                 </a>
               </article>
             ))}

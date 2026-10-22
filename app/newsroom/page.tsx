@@ -1,4 +1,5 @@
-import { NewsList, type NewsItem } from "../components/NewsList";
+import { type NewsItem } from "../components/NewsList";
+import { NewsTabs } from "../components/NewsTabs";
 import { Arrow, Shell } from "../components/SiteChrome";
 import { pageMetadata } from "../lib/seo";
 
@@ -13,10 +14,15 @@ const news: NewsItem[] = [
   {year:"2022",date:"FEBRUARY 2, 2022",category:"LICENSING AGREEMENT",title:"Aveta Biomics and CSIR-CDRI Announce License to Aveta Biomics for the Development and Commercialization of First-in-Class Bone Health Drugs",summary:"Aveta secured exclusive rights from CSIR-CDRI to a Caviunin-based composition, the first oral candidate designed to both preserve and build bone.",href:"https://www.prnewswire.com/news-releases/aveta-biomics-and-csir-cdri-announce-license-to-aveta-biomics-for-the-development-and-commercialization-of-first-in-class-bone-health-drugs-301473319.html"},
 ];
 
+// Articles written by or quoting Aveta executives in industry publications.
+const media: NewsItem[] = [
+  {year:"2026",date:"OCTOBER 20, 2026",category:"GUEST COLUMN · CLINICAL LEADER",title:"Testing Early Treatment in Head and Neck Cancer Without Compromising Curative Care",summary:"Chief Medical Officer Selda Samakoglu, MD, PhD, explains how the AVTA-30-01 Phase 3 trial tests whether oral APG-157 given before surgery or chemoradiotherapy can control head and neck cancer early without delaying curative treatment.",href:"https://www.clinicalleader.com/doc/testing-early-treatment-in-head-and-neck-cancer-without-compromising-curative-care-0001"},
+];
+
 export const metadata = pageMetadata({
   title: "Newsroom",
   description:
-    "Press releases and company news from Aveta Biomics, including regulatory milestones, clinical presentations and partnership announcements.",
+    "Press releases and media coverage from Aveta Biomics, including regulatory milestones, clinical presentations and partnership announcements.",
   path: "/newsroom",
 });
 
@@ -28,7 +34,7 @@ export default function NewsroomPage(){
         heading crawlers and assistive tech expect, with no visual change. */}
     <h1 className="sr-only">Newsroom</h1>
     <section className="section-sm"><div className="container">
-      <NewsList items={news} />
+      <NewsTabs press={news} media={media} />
     </div></section>
     <section className="section-sm"><div className="container media-band navy-bg"><div><p className="eyebrow" style={{color:'#9ec0ff'}}>MEDIA INQUIRIES</p><h2>For company information or interview requests, contact Aveta.</h2></div><a className="button-outline" href="mailto:betterhealth@avetabiomics.com?subject=Media inquiry">Contact Us <Arrow /></a></div></section>
   </main></Shell>

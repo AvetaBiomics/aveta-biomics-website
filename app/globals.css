@@ -252,6 +252,7 @@ a:hover > .icon-arrow{transform:translate(1px,-1px);transition:transform .15s}
 .pub-row{display:grid;grid-template-columns:150px 1fr 170px;gap:var(--s-3);align-items:start;padding:var(--s-4) 0;border-bottom:1px solid var(--line)}.pub-year{font-size:28px;font-weight:800}.pub-year small{display:block;margin-top:10px;color:var(--blue);font-size:11px;line-height:1.6}.pub-copy h2{font-size:18px;margin-bottom:8px}.pub-copy em{display:block;color:var(--muted);font-size:14px;margin-bottom:8px}.pub-copy p{margin:0;color:var(--muted);line-height:1.5;font-size:15px}
 
 /* News */
+.news-tabs{display:flex;gap:32px;margin-bottom:36px;border-bottom:1px solid var(--line)}.news-tabs button{padding:0 0 14px;margin-bottom:-1px;border:0;border-bottom:3px solid transparent;background:none;color:var(--muted);font:inherit;font-size:17px;font-weight:800;letter-spacing:.02em;cursor:pointer;transition:color .15s,border-color .15s}.news-tabs button:hover{color:var(--navy)}.news-tabs button[aria-selected="true"]{color:var(--blue);border-bottom-color:var(--blue)}.news-tabs button:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
 .news-toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:40px}/* Custom dropdown (see YearSelect.tsx). The trigger is a button so the entire
    box is the click target, and the panel is ours to style — which a native
    <select> does not allow. */
